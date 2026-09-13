@@ -865,6 +865,15 @@ textarea.form-input{resize:vertical; min-height:76px;}
         <button class="btn btn-primary" onclick="submitDailyReport('night')" id="submitBtn_night"><span data-i18n="report.submit">Soumettre le rapport</span></button>
       </div>
     </div>
+
+    <!-- ===== Historique des rapports ===== -->
+    <div class="card" style="margin-top:1.4rem;">
+      <div class="card-title" style="justify-content:space-between;">
+        <span style="display:flex; align-items:center; gap:.6rem;"><span class="ct-ico">🗂️</span><span>Historique des rapports</span></span>
+        <button class="btn btn-outline btn-sm" onclick="loadReportHistory()">🔄 Actualiser</button>
+      </div>
+      <div id="reportHistoryList"><div style="padding:1rem; color:var(--ink-soft); font-size:.85rem;">Chargement...</div></div>
+    </div>
   </div>
 
   <!-- AUTRES PAGES -->
@@ -1200,7 +1209,7 @@ textarea.form-input{resize:vertical; min-height:76px;}
       <div style="margin-top:10px; font-size:.88rem; color:var(--ink-soft); line-height:1.6;">
         🐕 <strong>Beldi Dog Rescue Morocco</strong><br/>
         Route d'Akchour, Talambote, Maroc 🇲🇦<br/>
-        📧 <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="3351565f575a41565546545673545e525a5f1d505c5e">[email&#160;protected]</a><br/>
+        📧 <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="bddfd8d1d9d4cfd8dbc8dad8fddad0dcd4d193ded2d0">[email&#160;protected]</a><br/>
         🔗 linktr.ee/beldidogrescue<br/>
         <span style="font-size:.78rem;">Version 1.1 — site géré par l'équipe Beldi</span>
       </div>
@@ -2223,6 +2232,14 @@ async function submitDailyReport(shift){
     return;
   }
 
+  loadReportHistory();
+  /* Propose l'envoi WhatsApp du rapport qui vient d'être soumis */
+  setTimeout(() => {
+    if(confirm('Rapport enregistré ✅\n\nL\'envoyer sur WhatsApp maintenant ?')){
+      shareReportWhatsApp({ shift, notes, created_at: new Date().toISOString() });
+    }
+  }, 400);
+
   if(notesEl) notesEl.value = '';
   const shiftLabels = { morning: 'Matin', evening: 'Soir', night: 'Nuit' };
   showToast(`Rapport ${shiftLabels[shift]} soumis avec succès`, 'success');
@@ -2563,6 +2580,75 @@ document.addEventListener('DOMContentLoaded', () => {
   }, 900);
 });
 
+/* ============ HISTORIQUE DES RAPPORTS + WHATSAPP ============ */
+const SHIFT_LABELS = { morning:'🌅 Matin', evening:'🌆 Soir', night:'🌙 Nuit' };
+
+function reportDateFmt(iso){
+  try{
+    return new Date(iso).toLocaleDateString('fr-FR', { weekday:'long', day:'numeric', month:'long', year:'numeric' }) +
+      ' à ' + new Date(iso).toLocaleTimeString('fr-FR', { hour:'2-digit', minute:'2-digit' });
+  }catch(e){ return iso || '—'; }
+}
+
+async function loadReportHistory(){
+  const list = document.getElementById('reportHistoryList');
+  if(!list) return;
+  try{
+    const { data, error } = await sb.from('daily_reports')
+      .select('*').order('created_at', { ascending:false }).limit(30);
+    if(error) throw error;
+    window._reportsCache = data || [];
+    if(!data || !data.length){
+      list.innerHTML = '<div style="padding:1rem; color:var(--ink-soft); font-size:.85rem;">Aucun rapport enregistré pour l\'instant.</div>';
+      return;
+    }
+    list.innerHTML = data.map((r, i) => `
+      <div style="border-bottom:1px solid var(--line); padding:.7rem .2rem;">
+        <div style="display:flex; align-items:center; gap:.6rem; flex-wrap:wrap;">
+          <span class="badge badge-info">${SHIFT_LABELS[r.shift] || r.shift || '—'}</span>
+          <span style="font-size:.78rem; color:var(--ink-soft); flex:1;">${reportDateFmt(r.created_at)}</span>
+          <button class="btn btn-outline btn-sm" onclick="reportToggle(${i})">👁️ Voir</button>
+          <button class="btn btn-outline btn-sm" style="color:#25D366; border-color:#25D366;" onclick="shareReportWhatsApp(window._reportsCache[${i}])">📲 WhatsApp</button>
+        </div>
+        <div id="reportBody_${i}" style="display:none; margin-top:.6rem; padding:.7rem .9rem; background:var(--sable-2); border-radius:8px; font-size:.83rem; white-space:pre-line; line-height:1.55;">${escapeHtml(r.notes || '(aucune note)')}</div>
+      </div>
+    `).join('');
+  }catch(e){
+    list.innerHTML = '<div style="padding:1rem; color:var(--alert); font-size:.85rem;">Erreur de chargement : ' + escapeHtml(e.message || String(e)) + '</div>';
+  }
+}
+
+function reportToggle(i){
+  const el = document.getElementById('reportBody_' + i);
+  if(el) el.style.display = el.style.display === 'none' ? 'block' : 'none';
+}
+
+function shareReportWhatsApp(r){
+  if(!r) return;
+  const who = (typeof currentProfile !== 'undefined' && currentProfile && currentProfile.full_name) ? currentProfile.full_name : 'Équipe Beldi';
+  const msg =
+    '🐕 *RAPPORT BELDI REFUGE*\n' +
+    '━━━━━━━━━━━━━━━\n' +
+    '📅 ' + reportDateFmt(r.created_at || new Date().toISOString()) + '\n' +
+    '⏰ Shift : ' + (SHIFT_LABELS[r.shift] || r.shift || '—') + '\n' +
+    '👤 Par : ' + who + '\n' +
+    '━━━━━━━━━━━━━━━\n' +
+    (r.notes || '(aucune note)') + '\n' +
+    '━━━━━━━━━━━━━━━\n' +
+    '🌐 beldi-dog-morocco.vercel.app';
+  window.open('https://wa.me/?text=' + encodeURIComponent(msg), '_blank');
+}
+
+/* Charge l'historique quand la page Rapport quotidien s'ouvre */
+(function(){
+  const pr = document.getElementById('page-daily-report');
+  if(pr){
+    new MutationObserver(() => {
+      if(pr.style.display !== 'none') loadReportHistory();
+    }).observe(pr, { attributes:true, attributeFilter:['style'] });
+  }
+})();
+
 /* ============ GALERIE ============ */
 const GAL_CATS = { sauvetage:'🆘 Sauvetage', quotidien:'🐾 Vie au refuge', adopte:'🏠 Adopté', avantapres:'✨ Avant / Après' };
 
@@ -2852,5 +2938,5 @@ new MutationObserver(() => {
 }).observe(document.getElementById('page-ai-assistant') || document.body, { attributes:true, attributeFilter:['style'] });
 document.addEventListener('DOMContentLoaded', () => { setTimeout(chatInit, 800); });
 </script>
-<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a3a8bcbb8f11f45b',t:'MTc4OTMxOTEzMQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a3a8df60f9a98048',t:'MTc4OTMyMDU1MA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
