@@ -509,19 +509,16 @@ textarea.form-input{resize:vertical; min-height:76px;}
   </header>
 
   <!-- ===== Assistant Beldi — affiché en entier sur la page publique ===== -->
-  <div id="miniChat" style="background:var(--white); border:1px solid var(--line); border-radius:var(--radius-m); margin:.9rem 1.2rem; overflow:hidden; box-shadow:0 6px 18px -10px rgba(181,80,46,.35);">
-    <div style="display:flex; align-items:center; gap:.7rem; padding:.8rem 1.1rem; background:linear-gradient(135deg,var(--clay),var(--clay-dark)); color:#fff;">
-      <span style="width:34px; height:34px; border-radius:9px; background:rgba(255,255,255,.18); display:grid; place-items:center; font-size:1.05rem; flex:none;">🐾</span>
-      <div style="flex:1; min-width:0;">
-        <div style="font-weight:700; font-size:.92rem;">Assistant Beldi</div>
-        <div style="font-size:.72rem; opacity:.85;">Une question ? Adoption, dons, urgence… je réponds !</div>
-      </div>
+  <div id="miniChat" style="background:var(--white); border:1px solid var(--line); border-radius:12px; margin:.7rem auto; max-width:300px; width:calc(100% - 2.4rem); overflow:hidden; box-shadow:0 4px 12px -8px rgba(181,80,46,.3);">
+    <div style="display:flex; align-items:center; gap:.45rem; padding:.45rem .7rem; background:linear-gradient(135deg,var(--clay),var(--clay-dark)); color:#fff;">
+      <span style="width:22px; height:22px; border-radius:6px; background:rgba(255,255,255,.18); display:grid; place-items:center; font-size:.8rem; flex:none;">🐾</span>
+      <div style="font-weight:700; font-size:.78rem;">Assistant Beldi</div>
     </div>
     <div id="miniChatBody">
-      <div id="miniChatQuick" style="display:flex; gap:.4rem; flex-wrap:wrap; padding:.7rem .8rem 0;"></div>
-      <div id="miniChatMessages" style="max-height:300px; min-height:120px; overflow-y:auto; padding:12px 14px; background:var(--sable); display:flex; flex-direction:column; gap:8px; margin-top:.6rem;"></div>
-      <div style="display:flex; gap:.5rem; padding:.6rem .8rem; border-top:1px solid var(--line); background:var(--white);">
-        <input id="miniChatInput" type="text" style="flex:1; min-width:0; padding:9px 12px; border:1px solid var(--line); border-radius:10px; background:var(--sable); color:var(--ink); font-size:.88rem; outline:none;" placeholder="Posez votre question…"/>
+      <div id="miniChatQuick" style="display:flex; gap:.3rem; flex-wrap:wrap; padding:.45rem .55rem 0;"></div>
+      <div id="miniChatMessages" style="max-height:130px; min-height:56px; overflow-y:auto; padding:8px 10px; background:var(--sable); display:flex; flex-direction:column; gap:6px; margin-top:.4rem; font-size:.8rem;"></div>
+      <div style="display:flex; gap:.35rem; padding:.4rem .55rem; border-top:1px solid var(--line); background:var(--white);">
+        <input id="miniChatInput" type="text" style="flex:1; min-width:0; padding:6px 9px; border:1px solid var(--line); border-radius:8px; background:var(--sable); color:var(--ink); font-size:.78rem; outline:none;" placeholder="Votre question…"/>
         <button class="btn btn-primary btn-sm" onclick="miniChatSend()">➤</button>
       </div>
     </div>
@@ -564,7 +561,7 @@ textarea.form-input{resize:vertical; min-height:76px;}
         <div class="help-ico" style="background:#fff3e0;">🙋</div>
         <div style="font-weight:700; margin-bottom:.35rem;" data-i18n="pub.helpVolunteer">Bénévolat</div>
         <div style="font-size:.8rem; color:var(--ink-soft); margin-bottom:.8rem;" data-i18n="pub.helpVolunteerSub">Balades, soins, transport, photos...</div>
-        <a class="btn btn-primary btn-sm" href="/cdn-cgi/l/email-protection#bdcbd2d1c8d3c9d8d8cffddfd8d1d9d4d9d2dacfd8cedec8d893ded2d0" style="text-decoration:none;" data-i18n="pub.helpVolunteerBtn">Nous écrire</a>
+        <a class="btn btn-primary btn-sm" href="/cdn-cgi/l/email-protection#6f1900031a011b0a0a1d2f0d0a030b060b00081d0a1c0c1a0a410c0002" style="text-decoration:none;" data-i18n="pub.helpVolunteerBtn">Nous écrire</a>
       </div>
     </div>
   </section>
@@ -651,14 +648,14 @@ textarea.form-input{resize:vertical; min-height:76px;}
         <div><div style="font-weight:700; font-size:.92rem;">Teaming</div><div style="font-size:.74rem; color:var(--ink-soft);" data-i18n="pub.teamingSub">1 € par mois, ensemble ça change tout</div></div>
       </a>
     </div>
-    <div style="font-size:.72rem; color:var(--ink-soft); margin-top:.8rem;" data-i18n="pub.receiptNote">Reçu fiscal sur demande : <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="e0838f8e94818394a082858c8489848f87928593839585ce838f8d">[email&#160;protected]</a></div>
+    <div style="font-size:.72rem; color:var(--ink-soft); margin-top:.8rem;" data-i18n="pub.receiptNote">Reçu fiscal sur demande : <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="4a2925243e2b293e0a282f262e232e252d382f39293f2f64292527">[email&#160;protected]</a></div>
   </section>
 
   <!-- ===== Contact ===== -->
   <section style="padding:1.8rem 1.2rem; background:var(--sable);" id="publicContactSection">
     <h2 style="font-family:'Fraunces',serif; font-weight:600; font-size:1.3rem; color:var(--ink); margin-bottom:1rem;" data-i18n="pub.contactTitle">📬 Contact</h2>
     <div style="display:flex; flex-wrap:wrap; gap:.7rem;">
-      <a href="/cdn-cgi/l/email-protection#6002050c040912050615070520070d01090c4e030f0d" style="display:flex; align-items:center; gap:.55rem; background:var(--white); border:1.5px solid var(--line); border-radius:10px; padding:.65rem 1rem; text-decoration:none; color:var(--ink); font-size:.85rem; font-weight:600;">✉️ <span class="__cf_email__" data-cfemail="4220272e262b30272437252702252f232b2e6c212d2f">[email&#160;protected]</span></a>
+      <a href="/cdn-cgi/l/email-protection#87e5e2ebe3eef5e2e1f2e0e2c7e0eae6eeeba9e4e8ea" style="display:flex; align-items:center; gap:.55rem; background:var(--white); border:1.5px solid var(--line); border-radius:10px; padding:.65rem 1rem; text-decoration:none; color:var(--ink); font-size:.85rem; font-weight:600;">✉️ <span class="__cf_email__" data-cfemail="2b494e474f42594e4d5e4c4e6b4c464a424705484446">[email&#160;protected]</span></a>
       <a href="https://www.instagram.com/beldi.rescue" target="_blank" rel="noopener" style="display:flex; align-items:center; gap:.55rem; background:var(--white); border:1.5px solid var(--line); border-radius:10px; padding:.65rem 1rem; text-decoration:none; color:var(--ink); font-size:.85rem; font-weight:600;">📸 Instagram</a>
       <a href="https://www.facebook.com/share/1DJhGZ5x5q/" target="_blank" rel="noopener" style="display:flex; align-items:center; gap:.55rem; background:var(--white); border:1.5px solid var(--line); border-radius:10px; padding:.65rem 1rem; text-decoration:none; color:var(--ink); font-size:.85rem; font-weight:600;">📘 Facebook</a>
       <a href="https://linktr.ee/beldidogrescue" target="_blank" rel="noopener" style="display:flex; align-items:center; gap:.55rem; background:var(--white); border:1.5px solid var(--line); border-radius:10px; padding:.65rem 1rem; text-decoration:none; color:var(--ink); font-size:.85rem; font-weight:600;">🔗 Linktree</a>
@@ -681,7 +678,7 @@ textarea.form-input{resize:vertical; min-height:76px;}
     <div class="modal-head"><div class="modal-title">Impressum — Legal Disclosure</div><button class="modal-close" onclick="closeModal('impressumModal')">✕</button></div>
     <div style="font-size:.85rem; line-height:1.65; color:var(--ink);">
       <p style="margin-bottom:.8rem;"><strong>Obligation to provide information according to § 5 TMG</strong></p>
-      <p style="margin-bottom:.8rem;">Beldi Dog Rescue Verein e.V.<br/>Hauptstrasse 22<br/>67742 Lauterecken, Germany<br/>Email : <a href="/cdn-cgi/l/email-protection#debdb1b0aabfbdaa9ebcbbb2bab7bab1b9acbbadbdabbbf0bdb1b3" style="color:var(--clay-dark);"><span class="__cf_email__" data-cfemail="ec8f8382988d8f98ac8e8980888588838b9e899f8f9989c28f8381">[email&#160;protected]</span></a></p>
+      <p style="margin-bottom:.8rem;">Beldi Dog Rescue Verein e.V.<br/>Hauptstrasse 22<br/>67742 Lauterecken, Germany<br/>Email : <a href="/cdn-cgi/l/email-protection#bad9d5d4cedbd9cefad8dfd6ded3ded5ddc8dfc9d9cfdf94d9d5d7" style="color:var(--clay-dark);"><span class="__cf_email__" data-cfemail="27444849534644536745424b434e4348405542544452420944484a">[email&#160;protected]</span></a></p>
       <p style="margin-bottom:.8rem;"><strong>EU dispute settlement</strong><br/>Consumers may submit complaints to the European Commission's Online Dispute Resolution platform: <a href="https://ec.europa.eu/odr" target="_blank" rel="noopener" style="color:var(--clay-dark);">ec.europa.eu/odr</a>. We are not willing or obliged to participate in dispute resolution proceedings before a consumer arbitration board.</p>
       <p style="margin-bottom:.8rem;"><strong>Liability for content</strong><br/>We strive to provide accurate and up-to-date information. As service providers (§ 7 (1) TMG) we are responsible for our own content, but not obliged to monitor third-party information (§§ 8–10 TMG). If you notice problematic or illegal content or links, please contact us so we can remove them.</p>
       <p style="margin-bottom:.8rem;"><strong>Copyright</strong><br/>All content on this website (images, photos, text, videos) is subject to copyright. Please contact us before distributing, copying or reusing any content.</p>
@@ -695,11 +692,11 @@ textarea.form-input{resize:vertical; min-height:76px;}
   <div class="modal" style="max-width:620px;">
     <div class="modal-head"><div class="modal-title">Data protection — Privacy information</div><button class="modal-close" onclick="closeModal('privacyModal')">✕</button></div>
     <div style="font-size:.85rem; line-height:1.65; color:var(--ink);">
-      <p style="margin-bottom:.8rem;"><strong>Responsible entity</strong><br/>Beldi Dog Rescue Verein e.V., Hauptstrasse 22, 67742 Lauterecken, Germany — <a href="/cdn-cgi/l/email-protection#0a6965647e6b697e4a686f666e636e656d786f79697f6f24696567" style="color:var(--clay-dark);"><span class="__cf_email__" data-cfemail="88ebe7e6fce9ebfcc8eaede4ece1ece7effaedfbebfdeda6ebe7e5">[email&#160;protected]</span></a></p>
+      <p style="margin-bottom:.8rem;"><strong>Responsible entity</strong><br/>Beldi Dog Rescue Verein e.V., Hauptstrasse 22, 67742 Lauterecken, Germany — <a href="/cdn-cgi/l/email-protection#e685898892878592a684838a828f828981948395859383c885898b" style="color:var(--clay-dark);"><span class="__cf_email__" data-cfemail="07646869736664734765626b636e6368607562746472622964686a">[email&#160;protected]</span></a></p>
       <p style="margin-bottom:.8rem;"><strong>What data we process</strong><br/>This website does not use advertising or tracking cookies. Your language preference is stored locally on your device only. Team accounts (email, name) are stored securely with our database provider (Supabase) and used solely for shelter management.</p>
       <p style="margin-bottom:.8rem;"><strong>Donations</strong><br/>Payments are processed by external providers (PayPal, your bank, Patreon, Teaming). We do not receive or store your payment card details. Please refer to the privacy policies of these providers.</p>
       <p style="margin-bottom:.8rem;"><strong>Contact</strong><br/>If you write to us by email or social media, we use your data only to answer your request.</p>
-      <p><strong>Your rights (GDPR)</strong><br/>You have the right to access, rectify or delete your personal data at any time. Contact: <a href="/cdn-cgi/l/email-protection#17747879637674635775727b737e7378706572647462723974787a" style="color:var(--clay-dark);"><span class="__cf_email__" data-cfemail="afccc0c1dbceccdbefcdcac3cbc6cbc0c8ddcadcccdaca81ccc0c2">[email&#160;protected]</span></a></p>
+      <p><strong>Your rights (GDPR)</strong><br/>You have the right to access, rectify or delete your personal data at any time. Contact: <a href="/cdn-cgi/l/email-protection#e5868a8b91848691a5878089818c818a82978096869080cb868a88" style="color:var(--clay-dark);"><span class="__cf_email__" data-cfemail="89eae6e7fde8eafdc9ebece5ede0ede6eefbecfaeafceca7eae6e4">[email&#160;protected]</span></a></p>
     </div>
   </div>
 </div>
@@ -723,7 +720,7 @@ textarea.form-input{resize:vertical; min-height:76px;}
         <span class="badge" id="publicAnimalStatusBadge"></span>
         <div style="font-family:'Fraunces',serif; font-weight:600; font-size:1.2rem; margin-top:.3rem;" data-public-detail="nameInner">—</div>
         <p data-public-detail="bio" style="font-size:.85rem; color:var(--ink-soft); margin-top:.5rem; line-height:1.5;">—</p>
-        <a class="btn btn-primary btn-sm" href="/cdn-cgi/l/email-protection#88e9ece7f8fcc8eaede4ece1ece7effaedfbebfdeda6ebe7e5" style="text-decoration:none; margin-top:.6rem; display:inline-block;" data-i18n="pub.adoptMe">🏠 Adoptez-moi</a>
+        <a class="btn btn-primary btn-sm" href="/cdn-cgi/l/email-protection#2647424956526644434a424f4249415443554553430845494b" style="text-decoration:none; margin-top:.6rem; display:inline-block;" data-i18n="pub.adoptMe">🏠 Adoptez-moi</a>
       </div>
     </div>
     <div style="margin-top:1.1rem; border-top:1px solid var(--line); padding-top:.9rem;">
@@ -1547,7 +1544,7 @@ textarea.form-input{resize:vertical; min-height:76px;}
       <div style="margin-top:10px; font-size:.88rem; color:var(--ink-soft); line-height:1.6;">
         🐕 <strong>Beldi Dog Rescue Morocco</strong><br/>
         Route d'Akchour, Talambote, Maroc 🇲🇦<br/>
-        📧 <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="492b2c252d203b2c2f3c2e2c092e24282025672a2624">[email&#160;protected]</a><br/>
+        📧 <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="e88a8d848c819a8d8e9d8f8da88f85898184c68b8785">[email&#160;protected]</a><br/>
         🔗 linktr.ee/beldidogrescue<br/>
         <span style="font-size:.78rem;">Version 1.1 — site géré par l'équipe Beldi</span>
       </div>
@@ -4375,5 +4372,5 @@ function pwaDismiss(){
   <button onclick="pwaDismiss()" style="border:none; background:none; color:var(--ink-soft); font-size:1rem; cursor:pointer;">✕</button>
 </div>
 
-</body>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a3aaa4c018efdcc1',t:'MTc4OTMzOTEyMA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
