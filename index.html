@@ -682,20 +682,14 @@ textarea.form-input{resize:vertical; min-height:76px;}
       </div>
       <div class="card">
         <div class="card-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 8a6 6 0 10-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 01-3.4 0"/></svg> <span data-i18n="dash.priorityAlerts">Alertes prioritaires</span></div>
-        <div class="alert-row urgent"><span class="alert-icon">🚨</span><div><div class="alert-title"><span data-i18n="alert.vaccineOverdue">Vaccin en retard</span></div><div class="alert-sub">Rocky — Rage (il y a 2 jours)</div></div></div>
-        <div class="alert-row urgent"><span class="alert-icon">🚨</span><div><div class="alert-title"><span data-i18n="alert.dogFight">Combat de chiens</span></div><div class="alert-sub">Chenil 3 — Max &amp; Bella</div></div></div>
-        <div class="alert-row important"><span class="alert-icon">⚠️</span><div><div class="alert-title"><span data-i18n="alert.lowStock">Stock faible</span></div><div class="alert-sub">Déparasitant — 3 unités restantes</div></div></div>
-        <div class="alert-row info"><span class="alert-icon">ℹ️</span><div><div class="alert-title"><span data-i18n="alert.treatmentToday">Traitement aujourd'hui</span></div><div class="alert-sub">Neve — Antibiotiques (14:00)</div></div></div>
+        <div style="padding:1rem .4rem; color:var(--ink-soft); font-size:.83rem;">🐾 Aucune alerte pour l'instant — tout va bien au refuge.</div>
         <button class="btn-ghost" style="width:100%; justify-content:center; font-size:.78rem; margin-top:.3rem;" onclick="openModal('alertCenterModal')" data-i18n="dash.seeAllAlerts">Voir toutes les alertes →</button>
       </div>
     </div>
 
     <div class="card">
       <div class="card-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 8v4l3 2"/><circle cx="12" cy="12" r="9"/></svg> <span data-i18n="dash.recentActivity">Activité récente</span></div>
-      <div class="activity-row"><div><div class="activity-main">🐕 Rocky — vaccination mise à jour</div><div class="activity-meta">Par Dr. Sarah · il y a 2 heures</div></div><span class="badge badge-ok" data-i18n="status.done">Terminé</span></div>
-      <div class="activity-row"><div><div class="activity-main">📦 Inventaire réapprovisionné — Nourriture</div><div class="activity-meta">Par l'équipe · il y a 4 heures</div></div><span class="badge badge-info" data-i18n="status.completed">Fait</span></div>
-      <div class="activity-row"><div><div class="activity-main">🏠 Adoption — Luna confiée à James</div><div class="activity-meta">Terminé · il y a 6 heures</div></div><span class="badge badge-ok" data-i18n="status.adopted">Adopté</span></div>
-      <div class="activity-row"><div><div class="activity-main">📋 Rapport quotidien — Matin</div><div class="activity-meta">Par Leeny · il y a 8 heures</div></div><span class="badge badge-warn" data-i18n="status.pending">En attente</span></div>
+      <div style="padding:1rem .4rem; color:var(--ink-soft); font-size:.83rem;">L'activité récente du refuge (rapports, adoptions, soins) s'affichera ici.</div>
     </div>
   </div>
 
@@ -749,8 +743,8 @@ textarea.form-input{resize:vertical; min-height:76px;}
       <div class="card" style="margin-bottom:1.1rem;">
         <div class="card-title"><span class="ct-ico">🐕</span><span data-i18n="report.dogUpdates">Mises à jour des chiens</span></div>
         <div class="grid-2b">
-          <div><div class="form-label"><span data-i18n="report.dogsNeedAttention">Chiens nécessitant attention</span></div><textarea class="form-input" id="attention_morning" style="min-height:80px;" placeholder="Ex : Rocky — diarrhée, Neve — léthargique..."></textarea></div>
-          <div><div class="form-label"><span data-i18n="report.injuries">Blessures / problèmes</span></div><textarea class="form-input" id="injuries_morning" style="min-height:80px;" placeholder="Ex : Luna — tension au chenil..."></textarea></div>
+          <div><div class="form-label"><span data-i18n="report.dogsNeedAttention">Chiens nécessitant attention</span></div><textarea class="form-input" id="attention_morning" style="min-height:80px;" placeholder="Ex : nom du chien — diarrhée, léthargie..."></textarea></div>
+          <div><div class="form-label"><span data-i18n="report.injuries">Blessures / problèmes</span></div><textarea class="form-input" id="injuries_morning" style="min-height:80px;" placeholder="Ex : nom du chien — blessure, tension..."></textarea></div>
         </div>
         <div style="margin-top:.85rem;"><div class="form-label"><span data-i18n="report.additionalNotes">Notes supplémentaires</span></div><textarea class="form-input" id="notes_morning" placeholder="Décrivez les problèmes, observations ou préoccupations..."></textarea></div>
       </div>
@@ -793,8 +787,8 @@ textarea.form-input{resize:vertical; min-height:76px;}
       <div class="card" style="margin-bottom:1.1rem;">
         <div class="card-title"><span class="ct-ico">🐕</span><span data-i18n="report.dogUpdates">Mises à jour des chiens</span></div>
         <div class="grid-2b">
-          <div><div class="form-label"><span data-i18n="report.dogsNeedAttention">Chiens nécessitant attention</span></div><textarea class="form-input" id="attention_evening" style="min-height:80px;" placeholder="Ex : Rocky — diarrhée, Neve — léthargique..."></textarea></div>
-          <div><div class="form-label"><span data-i18n="report.injuries">Blessures / problèmes</span></div><textarea class="form-input" id="injuries_evening" style="min-height:80px;" placeholder="Ex : Luna — tension au chenil..."></textarea></div>
+          <div><div class="form-label"><span data-i18n="report.dogsNeedAttention">Chiens nécessitant attention</span></div><textarea class="form-input" id="attention_evening" style="min-height:80px;" placeholder="Ex : nom du chien — diarrhée, léthargie..."></textarea></div>
+          <div><div class="form-label"><span data-i18n="report.injuries">Blessures / problèmes</span></div><textarea class="form-input" id="injuries_evening" style="min-height:80px;" placeholder="Ex : nom du chien — blessure, tension..."></textarea></div>
         </div>
         <div style="margin-top:.85rem;"><div class="form-label"><span data-i18n="report.additionalNotes">Notes supplémentaires</span></div><textarea class="form-input" id="notes_evening" placeholder="Décrivez les problèmes, observations ou préoccupations..."></textarea></div>
       </div>
@@ -837,8 +831,8 @@ textarea.form-input{resize:vertical; min-height:76px;}
       <div class="card" style="margin-bottom:1.1rem;">
         <div class="card-title"><span class="ct-ico">🐕</span><span data-i18n="report.dogUpdates">Mises à jour des chiens</span></div>
         <div class="grid-2b">
-          <div><div class="form-label"><span data-i18n="report.dogsNeedAttention">Chiens nécessitant attention</span></div><textarea class="form-input" id="attention_night" style="min-height:80px;" placeholder="Ex : Rocky — diarrhée, Neve — léthargique..."></textarea></div>
-          <div><div class="form-label"><span data-i18n="report.injuries">Blessures / problèmes</span></div><textarea class="form-input" id="injuries_night" style="min-height:80px;" placeholder="Ex : Luna — tension au chenil..."></textarea></div>
+          <div><div class="form-label"><span data-i18n="report.dogsNeedAttention">Chiens nécessitant attention</span></div><textarea class="form-input" id="attention_night" style="min-height:80px;" placeholder="Ex : nom du chien — diarrhée, léthargie..."></textarea></div>
+          <div><div class="form-label"><span data-i18n="report.injuries">Blessures / problèmes</span></div><textarea class="form-input" id="injuries_night" style="min-height:80px;" placeholder="Ex : nom du chien — blessure, tension..."></textarea></div>
         </div>
         <div style="margin-top:.85rem;"><div class="form-label"><span data-i18n="report.additionalNotes">Notes supplémentaires</span></div><textarea class="form-input" id="notes_night" placeholder="Décrivez les problèmes, observations ou préoccupations..."></textarea></div>
       </div>
@@ -895,25 +889,17 @@ textarea.form-input{resize:vertical; min-height:76px;}
     <div class="grid-2" style="margin-bottom:1.1rem;">
       <div class="card">
         <div class="card-title">Vaccinations à échéance</div>
-        <div class="activity-row"><div><div class="activity-main">🐕 Rocky — Rage</div><div class="activity-meta">Échue depuis 2 jours</div></div><span class="badge badge-danger">En retard</span></div>
-        <div class="activity-row"><div><div class="activity-main">🐕 Luna — Polyvalent (CHPPiL)</div><div class="activity-meta">Échue depuis 5 jours</div></div><span class="badge badge-danger">En retard</span></div>
-        <div class="activity-row"><div><div class="activity-main">🐕 Max — Rage</div><div class="activity-meta">Échue depuis 1 jour</div></div><span class="badge badge-danger">En retard</span></div>
-        <div class="activity-row"><div><div class="activity-main">🐕 Neve — Polyvalent (CHPPiL)</div><div class="activity-meta">Dans 3 jours</div></div><span class="badge badge-warn">Bientôt</span></div>
+        <div style="padding:1rem .4rem; color:var(--ink-soft); font-size:.83rem;">Aucune vaccination à échéance enregistrée.</div>
       </div>
       <div class="card">
         <div class="card-title">Traitements en cours</div>
-        <div class="activity-row"><div><div class="activity-main">💊 Neve — Antibiotiques</div><div class="activity-meta">Jour 3 sur 7 · 14:00</div></div><span class="badge badge-info">En cours</span></div>
-        <div class="activity-row"><div><div class="activity-main">💊 Max — Observation quarantaine</div><div class="activity-meta">Jour 5 sur 10</div></div><span class="badge badge-info">En cours</span></div>
-        <div class="activity-row"><div><div class="activity-main">💊 Bella — Déparasitant</div><div class="activity-meta">Dose unique · fait</div></div><span class="badge badge-ok">Terminé</span></div>
+        <div style="padding:1rem .4rem; color:var(--ink-soft); font-size:.83rem;">Aucun traitement en cours enregistré.</div>
       </div>
     </div>
 
     <div class="card">
       <div class="card-title">Historique médical récent</div>
-      <div class="activity-row"><div><div class="activity-main">🐕 Rocky — Vaccination Rage mise à jour</div><div class="activity-meta">Par Dr. Sarah · 10 avr. 2025</div></div><span class="badge badge-ok">Fait</span></div>
-      <div class="activity-row"><div><div class="activity-main">🐕 Neve — Consultation diarrhée</div><div class="activity-meta">Par Dr. Ahmed · 8 avr. 2025</div></div><span class="badge badge-ok">Fait</span></div>
-      <div class="activity-row"><div><div class="activity-main">🐕 Max — Bilan de quarantaine</div><div class="activity-meta">Par Dr. Sarah · 6 avr. 2025</div></div><span class="badge badge-ok">Fait</span></div>
-      <div class="activity-row"><div><div class="activity-main">🐕 Luna — Déparasitage</div><div class="activity-meta">Par l'équipe · 4 avr. 2025</div></div><span class="badge badge-ok">Fait</span></div>
+      <div style="padding:1rem .4rem; color:var(--ink-soft); font-size:.83rem;">L'historique médical s'affichera ici.</div>
     </div>
   </div>
 
@@ -972,17 +958,12 @@ textarea.form-input{resize:vertical; min-height:76px;}
 
     <div class="card">
       <div class="card-title">Demandes en cours</div>
-      <div class="activity-row"><div><div class="activity-main">🐕 Rocky → James Miller</div><div class="activity-meta">Appel vidéo prévu · 15 avr.</div></div><span class="badge badge-info">Entretien</span></div>
-      <div class="activity-row"><div><div class="activity-main">🐕 Luna → Amina Bensouda</div><div class="activity-meta">Visite à domicile prévue</div></div><span class="badge badge-warn">Visite</span></div>
-      <div class="activity-row"><div><div class="activity-main">🐕 Neve → Clara Dubois</div><div class="activity-meta">Formulaire reçu · en révision</div></div><span class="badge badge-neutral">Nouveau</span></div>
-      <div class="activity-row"><div><div class="activity-main">🐕 Max → famille Rossi</div><div class="activity-meta">Dossier voyage en préparation</div></div><span class="badge badge-ok">Approuvé</span></div>
+      <div style="padding:1rem .4rem; color:var(--ink-soft); font-size:.83rem;">Les demandes d'adoption en cours s'afficheront ici.</div>
     </div>
 
     <div class="card" style="margin-top:1.1rem;">
       <div class="card-title">Adoptions récentes</div>
-      <div class="activity-row"><div><div class="activity-main">🏠 Bella → famille Petit (France)</div><div class="activity-meta">Adoptée le 2 avr. 2025</div></div><span class="badge badge-ok">Adopté</span></div>
-      <div class="activity-row"><div><div class="activity-main">🏠 Simba → Laura Weber (Allemagne)</div><div class="activity-meta">Adoptée le 28 mars 2025</div></div><span class="badge badge-ok">Adopté</span></div>
-      <div class="activity-row"><div><div class="activity-main">🏠 Coco → David Smith (UK)</div><div class="activity-meta">Adoptée le 20 mars 2025</div></div><span class="badge badge-ok">Adopté</span></div>
+      <div style="padding:1rem .4rem; color:var(--ink-soft); font-size:.83rem;">Les adoptions finalisées s'afficheront ici. 🏠</div>
     </div>
   </div>
 
@@ -1040,15 +1021,12 @@ textarea.form-input{resize:vertical; min-height:76px;}
     <div class="grid-2" style="margin-bottom:1.1rem;">
       <div class="card">
         <div class="card-title">Incidents récents</div>
-        <div class="alert-row urgent"><span class="alert-icon">🚨</span><div><div class="alert-title">Combat de chiens</div><div class="alert-sub">Chenil 3 — Max &amp; Bella · 14:30</div></div></div>
         <div class="alert-row important"><span class="alert-icon">⚠️</span><div><div class="alert-title">Porte de chenil cassée</div><div class="alert-sub">Chenil 5 · signalé par l'équipe</div></div></div>
         <div class="alert-row info"><span class="alert-icon">ℹ️</span><div><div class="alert-title">Fuite d'eau</div><div class="alert-sub">Zone hospitalière · en réparation</div></div></div>
       </div>
       <div class="card">
         <div class="card-title">Quarantaines actives</div>
-        <div class="activity-row"><div><div class="activity-main">🔒 Max — Observation</div><div class="activity-meta">Jour 5 sur 10 · Chenil Q1</div></div><span class="badge badge-warn">Actif</span></div>
-        <div class="activity-row"><div><div class="activity-main">🔒 Tino — Chimiothérapie</div><div class="activity-meta">Suivi médical · Chenil Q2</div></div><span class="badge badge-warn">Actif</span></div>
-        <div class="activity-row"><div><div class="activity-main">🔒 Valentine — Demodex</div><div class="activity-meta">Traitement en cours · Chenil Q3</div></div><span class="badge badge-warn">Actif</span></div>
+        <div style="padding:1rem .4rem; color:var(--ink-soft); font-size:.83rem;">Aucune quarantaine active enregistrée.</div>
       </div>
     </div>
 
@@ -1113,7 +1091,7 @@ textarea.form-input{resize:vertical; min-height:76px;}
       </div>
       <div id="eventForm" style="display:none; margin-top:14px; padding:14px; background:var(--sable); border-radius:12px; border:1px solid var(--line);">
         <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
-          <input id="evTitle" type="text" placeholder="Titre (ex: Vaccin Rocky)" style="grid-column:1/3; padding:10px 12px; border:1px solid var(--line); border-radius:8px; background:var(--white); color:var(--ink);"/>
+          <input id="evTitle" type="text" placeholder="Titre (ex: Visite vétérinaire)" style="grid-column:1/3; padding:10px 12px; border:1px solid var(--line); border-radius:8px; background:var(--white); color:var(--ink);"/>
           <input id="evDate" type="date" style="padding:10px 12px; border:1px solid var(--line); border-radius:8px; background:var(--white); color:var(--ink);"/>
           <input id="evTime" type="time" style="padding:10px 12px; border:1px solid var(--line); border-radius:8px; background:var(--white); color:var(--ink);"/>
           <select id="evType" style="grid-column:1/3; padding:10px 12px; border:1px solid var(--line); border-radius:8px; background:var(--white); color:var(--ink);">
@@ -1149,7 +1127,7 @@ textarea.form-input{resize:vertical; min-height:76px;}
         </div>
         <div>
           <div class="form-label">Titre / légende</div>
-          <input class="form-input" id="gCaption" placeholder="Ex : Rocky à son arrivée, novembre 2025"/>
+          <input class="form-input" id="gCaption" placeholder="Ex : Un sauvetage à son arrivée, novembre 2025"/>
         </div>
       </div>
       <div class="grid-2b" style="margin-bottom:.85rem;">
@@ -1191,6 +1169,14 @@ textarea.form-input{resize:vertical; min-height:76px;}
   <div id="page-settings" style="display:none;">
     <div class="card" style="margin-bottom:16px;">
       <div class="card-title" data-i18n="set.profile">Mon profil</div>
+      <div style="display:flex; align-items:center; gap:1rem; margin-top:12px; flex-wrap:wrap;">
+        <div id="setAvatarPreview" style="width:74px; height:74px; border-radius:50%; background:var(--zellige); color:#fff; display:flex; align-items:center; justify-content:center; font-weight:600; font-size:1.6rem; overflow:hidden; flex:none; border:3px solid var(--clay-tint);">A</div>
+        <div style="display:flex; flex-direction:column; gap:.45rem;">
+          <input type="file" id="avatarFile" accept="image/*" style="display:none;" onchange="avatarSelected()"/>
+          <button class="btn btn-outline btn-sm" onclick="document.getElementById('avatarFile').click()">📷 Changer ma photo</button>
+          <div id="avatarStatus" style="font-size:.75rem; color:var(--ink-soft);"></div>
+        </div>
+      </div>
       <div style="margin-top:12px; display:flex; flex-direction:column; gap:8px; font-size:.92rem;">
         <div><span style="color:var(--ink-soft);" data-i18n="set.name">Nom :</span> <strong id="setName">—</strong></div>
         <div><span style="color:var(--ink-soft);" data-i18n="set.email">Email :</span> <strong id="setEmail">—</strong></div>
@@ -1209,7 +1195,7 @@ textarea.form-input{resize:vertical; min-height:76px;}
       <div style="margin-top:10px; font-size:.88rem; color:var(--ink-soft); line-height:1.6;">
         🐕 <strong>Beldi Dog Rescue Morocco</strong><br/>
         Route d'Akchour, Talambote, Maroc 🇲🇦<br/>
-        📧 <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="96f4f3faf2ffe4f3f0e3f1f3d6f1fbf7fffab8f5f9fb">[email&#160;protected]</a><br/>
+        📧 <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="7b191e171f12091e1d0e1c1e3b1c161a121755181416">[email&#160;protected]</a><br/>
         🔗 linktr.ee/beldidogrescue<br/>
         <span style="font-size:.78rem;">Version 1.1 — site géré par l'équipe Beldi</span>
       </div>
@@ -1226,11 +1212,7 @@ textarea.form-input{resize:vertical; min-height:76px;}
 <div class="modal-overlay" id="alertCenterModal">
   <div class="modal" style="max-width:560px;">
     <div class="modal-head"><div class="modal-title"><span data-i18n="modal.alertCenter">Centre d'alertes</span></div><button class="modal-close" onclick="closeModal('alertCenterModal')">✕</button></div>
-    <div class="alert-row urgent"><span class="alert-icon">🚨</span><div style="flex:1;"><div class="alert-title"><span data-i18n="alert.vaccineOverdue">Vaccin en retard</span></div><div class="alert-sub">Rocky — Rage (il y a 2 jours)</div></div><button class="btn btn-outline btn-sm" data-i18n="common.resolve">Résoudre</button></div>
-    <div class="alert-row important"><span class="alert-icon">⚠️</span><div style="flex:1;"><div class="alert-title"><span data-i18n="alert.lowStock">Stock faible</span></div><div class="alert-sub">Déparasitant — 3 unités restantes</div></div><button class="btn btn-outline btn-sm" data-i18n="common.order">Commander</button></div>
-    <div class="alert-row important"><span class="alert-icon">⚠️</span><div style="flex:1;"><div class="alert-title"><span data-i18n="alert.repeatedHealthIssue">Problème de santé répété</span></div><div class="alert-sub">Neve — Diarrhée (3 jours consécutifs)</div></div><button class="btn btn-outline btn-sm" data-i18n="common.view">Voir</button></div>
-    <div class="alert-row urgent"><span class="alert-icon">🚨</span><div style="flex:1;"><div class="alert-title"><span data-i18n="alert.dogFight">Combat de chiens</span></div><div class="alert-sub">Chenil 3 — Max &amp; Bella · 14:30</div></div><button class="btn btn-outline btn-sm" data-i18n="common.resolve">Résoudre</button></div>
-    <div class="alert-row info"><span class="alert-icon">ℹ️</span><div style="flex:1;"><div class="alert-title"><span data-i18n="alert.treatmentToday">Traitement aujourd'hui</span></div><div class="alert-sub">Neve — Antibiotiques (14:00)</div></div><button class="btn btn-outline btn-sm" data-i18n="status.completed">Fait</button></div>
+    <div style="padding:1.4rem; text-align:center; color:var(--ink-soft); font-size:.85rem;">🐾 Aucune alerte pour l'instant.</div>
   </div>
 </div>
 
@@ -1251,12 +1233,12 @@ textarea.form-input{resize:vertical; min-height:76px;}
 
 <div class="modal-overlay" id="animalDetailModal">
   <div class="modal" style="max-width:660px;">
-    <div class="modal-head"><div class="modal-title" data-detail="name">Rocky — <span data-i18n="modal.profile">Profil</span></div><button class="modal-close" onclick="closeModal('animalDetailModal')">✕</button></div>
+    <div class="modal-head"><div class="modal-title" data-detail="name"><span data-i18n="modal.profile">Profil</span></div><button class="modal-close" onclick="closeModal('animalDetailModal')">✕</button></div>
     <div style="display:grid; grid-template-columns:1fr 2fr; gap:1rem;">
       <div style="background:var(--sable-2); border-radius:var(--radius-m); height:180px; display:flex; align-items:center; justify-content:center; font-size:3.5rem;">🐕</div>
       <div>
         <span class="badge badge-ok" data-i18n="status.available">Disponible</span>
-        <div style="font-family:'Fraunces',serif; font-weight:600; font-size:1.2rem; margin-top:.3rem;">Rocky</div>
+        <div style="font-family:'Fraunces',serif; font-weight:600; font-size:1.2rem; margin-top:.3rem;" data-detail="nameInner">—</div>
         <p data-detail="bio" style="font-size:.85rem; color:var(--ink-soft); margin-top:.5rem; line-height:1.5;">Chargement...</p>
         <div style="font-size:.83rem; color:var(--ink-soft);">Berger allemand · <span data-i18n="field.male">Mâle</span> · 2 ans</div>
         <div style="font-size:.83rem; color:var(--ink-soft);">32 kg · <span data-i18n="detail.arrivedOn">Arrivé le</span> 15 janvier 2025</div>
@@ -1305,7 +1287,7 @@ textarea.form-input{resize:vertical; min-height:76px;}
   <div class="modal">
     <div class="modal-head"><div class="modal-title">Nouveau dossier médical</div><button class="modal-close" onclick="closeModal('healthModal')">✕</button></div>
     <div class="form-grid">
-      <div><label class="form-label">Animal</label><select class="form-input"><option>Rocky</option><option>Neve</option><option>Luna</option><option>Max</option></select></div>
+      <div><label class="form-label">Animal</label><select class="form-input dog-select"><option value="">— Sélectionner un chien —</option></select></div>
       <div><label class="form-label">Type</label><select class="form-input"><option>Vaccination</option><option>Traitement</option><option>Contrôle</option><option>Chirurgie</option></select></div>
       <div><label class="form-label">Date</label><input class="form-input" type="date"/></div>
       <div><label class="form-label">Vétérinaire</label><input class="form-input" placeholder="Nom du vétérinaire"/></div>
@@ -1333,7 +1315,7 @@ textarea.form-input{resize:vertical; min-height:76px;}
   <div class="modal">
     <div class="modal-head"><div class="modal-title">Nouvelle demande d'adoption</div><button class="modal-close" onclick="closeModal('adoptionModal')">✕</button></div>
     <div class="form-grid">
-      <div><label class="form-label">Chien</label><select class="form-input"><option>Rocky</option><option>Luna</option><option>Neve</option><option>Max</option></select></div>
+      <div><label class="form-label">Chien</label><select class="form-input dog-select"><option value="">— Sélectionner un chien —</option></select></div>
       <div><label class="form-label">Nom du candidat</label><input class="form-input" placeholder="Nom complet"/></div>
       <div><label class="form-label">Email</label><input class="form-input" type="email" placeholder="Email"/></div>
       <div><label class="form-label">Téléphone</label><input class="form-input" placeholder="Numéro de téléphone"/></div>
@@ -1376,7 +1358,7 @@ textarea.form-input{resize:vertical; min-height:76px;}
   <div class="modal">
     <div class="modal-head"><div class="modal-title">Ajouter une quarantaine</div><button class="modal-close" onclick="closeModal('quarantineModal')">✕</button></div>
     <div class="form-grid">
-      <div><label class="form-label">Animal</label><select class="form-input"><option>Max</option><option>Tino</option><option>Valentine</option></select></div>
+      <div><label class="form-label">Animal</label><select class="form-input dog-select"><option value="">— Sélectionner un chien —</option></select></div>
       <div><label class="form-label">Niveau de risque</label><select class="form-input"><option>Faible</option><option>Moyen</option><option>Élevé</option></select></div>
       <div><label class="form-label">Date de début</label><input class="form-input" type="date"/></div>
       <div><label class="form-label">Durée (jours)</label><input class="form-input" type="number" value="7"/></div>
@@ -1511,6 +1493,7 @@ async function loadSessionAndStart(){
   document.getElementById('userAvatar').textContent = (profile?.avatar_letter || currentUser.email[0] || '?').toUpperCase();
   const staffEl = document.getElementById('currentStaffName');
   if(staffEl) staffEl.textContent = profile?.full_name || currentUser.email;
+  if(profile?.avatar_url) applyAvatar(profile.avatar_url);
 
   document.getElementById('publicSite').style.display = 'none';
   document.getElementById('loginScreen').style.display = 'none';
@@ -2638,8 +2621,67 @@ function shareReportWhatsApp(r){
     (r.notes || '(aucune note)') + '\n' +
     '━━━━━━━━━━━━━━━\n' +
     '🌐 beldi-dog-morocco.vercel.app';
-  window.open('https://wa.me/?text=' + encodeURIComponent(msg), '_blank');
+  /* Méthode fiable sur mobile : lien <a> cliqué (window.open est souvent bloqué) */
+  const a = document.createElement('a');
+  a.href = 'https://wa.me/?text=' + encodeURIComponent(msg);
+  a.target = '_blank';
+  a.rel = 'noopener';
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
 }
+
+/* ============ PHOTO DE PROFIL ============ */
+function applyAvatar(url){
+  const side = document.getElementById('userAvatar');
+  const prev = document.getElementById('setAvatarPreview');
+  [side, prev].forEach(el => {
+    if(!el) return;
+    if(url){
+      el.innerHTML = '<img src="' + escapeHtml(url) + '" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" onerror="this.remove()"/>';
+    }
+  });
+}
+
+async function avatarSelected(){
+  const f = document.getElementById('avatarFile').files[0];
+  const st = document.getElementById('avatarStatus');
+  if(!f) return;
+  st.textContent = '⏳ Envoi de la photo...';
+  try{
+    /* réutilise la compression de la galerie (max 1200px) */
+    const blob = await galCompress(f);
+    const name = 'avatars/' + currentUser.id + '.jpg';
+    const { error: upErr } = await sb.storage.from('gallery').upload(name, blob, { contentType:'image/jpeg', upsert:true });
+    if(upErr) throw upErr;
+    const url = sb.storage.from('gallery').getPublicUrl(name).data.publicUrl + '?v=' + Date.now();
+    const { error: prErr } = await sb.from('profiles').update({ avatar_url: url }).eq('id', currentUser.id);
+    if(prErr) throw prErr;
+    if(currentProfile) currentProfile.avatar_url = url;
+    applyAvatar(url);
+    st.textContent = '✅ Photo de profil mise à jour !';
+    if(typeof showToast === 'function') showToast('Photo de profil mise à jour ✅');
+  }catch(e){
+    st.textContent = '❌ Erreur : ' + (e.message || e);
+  }
+}
+
+/* ============ LISTES DE CHIENS DYNAMIQUES (vrais chiens Supabase) ============ */
+async function fillDogSelects(){
+  const sels = document.querySelectorAll('select.dog-select');
+  if(!sels.length) return;
+  try{
+    const { data } = await sb.from('animals').select('name').order('name');
+    if(!data || !data.length) return;
+    sels.forEach(sel => {
+      const current = sel.value;
+      sel.innerHTML = '<option value="">— Sélectionner un chien —</option>' +
+        data.map(a => '<option>' + escapeHtml(a.name) + '</option>').join('');
+      if(current) sel.value = current;
+    });
+  }catch(e){}
+}
+document.addEventListener('DOMContentLoaded', () => { setTimeout(fillDogSelects, 1200); });
 
 /* Charge l'historique quand la page Rapport quotidien s'ouvre */
 (function(){
@@ -2916,6 +2958,9 @@ function loadSettings(){
     if(n) n.textContent = currentProfile.full_name || '—';
     if(e2) e2.textContent = (typeof currentUser !== 'undefined' && currentUser) ? currentUser.email : '—';
     if(r) r.textContent = currentProfile.role || 'worker';
+    const av = document.getElementById('setAvatarPreview');
+    if(av && !av.querySelector('img')) av.textContent = (currentProfile.avatar_letter || (currentUser && currentUser.email[0]) || 'A').toUpperCase();
+    if(currentProfile.avatar_url) applyAvatar(currentProfile.avatar_url);
   }
 }
 
@@ -2940,5 +2985,5 @@ new MutationObserver(() => {
 }).observe(document.getElementById('page-ai-assistant') || document.body, { attributes:true, attributeFilter:['style'] });
 document.addEventListener('DOMContentLoaded', () => { setTimeout(chatInit, 800); });
 </script>
-<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a3a8e8318fa633e7',t:'MTc4OTMyMDkxMQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</body>
 </html>
