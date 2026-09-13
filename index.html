@@ -273,10 +273,43 @@ html[dir="rtl"] .grid-2b{direction:rtl;}
 .animal-breed{font-size:.78rem; color:var(--ink-soft); margin-top:1px;}
 .animal-meta{display:flex; gap:.6rem; font-size:.71rem; color:var(--ink-soft); margin-top:.55rem;}
 
-/* daily report shift tabs */
-.shift-switch{display:inline-flex; padding:.3rem; background:var(--sable-2); border:1px solid var(--line); border-radius:999px; margin-bottom:1.4rem; gap:.2rem;}
-.shift-tab{border:none; background:transparent; padding:.5rem 1.1rem; border-radius:999px; font-weight:600; font-size:.82rem; color:var(--ink-soft); cursor:pointer; transition:all .15s;}
-.shift-tab.active{background:var(--clay); color:#fff; box-shadow:0 3px 10px -3px rgba(181,80,46,.5);}
+/* daily report — header banner */
+.report-head{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:.75rem; padding:1rem 1.2rem; margin-bottom:1.2rem; border-radius:var(--radius-m); background:linear-gradient(135deg,var(--clay),var(--clay-dark)); color:#fff; box-shadow:0 8px 22px -10px rgba(181,80,46,.55);}
+.report-head-title{font-family:'Fraunces',serif; font-weight:600; font-size:1.15rem; display:flex; align-items:center; gap:.55rem;}
+.report-head-sub{font-size:.8rem; opacity:.9; margin-top:3px;}
+.report-head .badge{background:rgba(255,255,255,.16); color:#fff; border:1px solid rgba(255,255,255,.35);}
+
+/* daily report shift tabs — square cards */
+.shift-switch{display:grid; grid-template-columns:repeat(3,1fr); gap:.7rem; margin-bottom:1.4rem; max-width:600px;}
+.shift-tab{display:flex; align-items:center; gap:.65rem; border:1.5px solid var(--line); background:var(--white); padding:.65rem .8rem; border-radius:var(--radius-s); font-weight:600; font-size:.85rem; color:var(--ink-soft); cursor:pointer; transition:all .15s; text-align:left; font-family:inherit;}
+.shift-tab:hover{border-color:var(--clay); transform:translateY(-1px);}
+.shift-ico{width:40px; height:40px; border-radius:10px; background:var(--sable-2); display:grid; place-items:center; font-size:1.2rem; flex:none; transition:all .15s;}
+.shift-txt{display:flex; flex-direction:column; line-height:1.2;}
+.shift-name{font-weight:700;}
+.shift-time{font-size:.68rem; font-weight:500; opacity:.75; margin-top:2px;}
+.shift-tab.active{background:linear-gradient(135deg,var(--clay),var(--clay-dark)); border-color:var(--clay-dark); color:#fff; box-shadow:0 6px 16px -6px rgba(181,80,46,.55);}
+.shift-tab.active .shift-ico{background:rgba(255,255,255,.2);}
+@media(max-width:600px){
+  .shift-switch{gap:.45rem;}
+  .shift-tab{flex-direction:column; text-align:center; gap:.4rem; padding:.65rem .35rem;}
+  .shift-time{display:none;}
+}
+
+/* daily report — square section icons */
+#page-daily-report .card-title{display:flex; align-items:center; gap:.6rem;}
+.ct-ico{width:34px; height:34px; border-radius:9px; display:grid; place-items:center; font-size:1rem; flex:none; background:var(--clay-tint); border:1px solid var(--line);}
+
+/* checklist Oui/Non/N-A — square chips */
+#page-daily-report .radio-group{gap:.4rem;}
+#page-daily-report .radio-opt{position:relative;}
+#page-daily-report .radio-opt input{position:absolute; opacity:0; inset:0; margin:0; cursor:pointer;}
+#page-daily-report .radio-opt span{display:inline-flex; align-items:center; justify-content:center; min-width:46px; padding:.42rem .6rem; border:1.5px solid var(--line); border-radius:8px; font-size:.74rem; font-weight:600; color:var(--ink-soft); background:var(--white); transition:all .15s;}
+#page-daily-report .radio-opt:hover span{border-color:var(--clay);}
+#page-daily-report .radio-opt:nth-child(1) input:checked + span{background:#2e7d4f; border-color:#276a44; color:#fff; box-shadow:0 3px 8px -3px rgba(46,125,79,.5);}
+#page-daily-report .radio-opt:nth-child(2) input:checked + span{background:#c0392b; border-color:#a93226; color:#fff; box-shadow:0 3px 8px -3px rgba(192,57,43,.5);}
+#page-daily-report .radio-opt:nth-child(3) input:checked + span{background:var(--ink-soft); border-color:var(--ink-soft); color:#fff;}
+#page-daily-report .checklist-row{transition:background .15s; border-radius:8px; padding:.55rem .5rem; margin:0 -.5rem;}
+#page-daily-report .checklist-row:hover{background:var(--sable-2);}
 .shift-content{display:none;}
 .shift-content.active{display:block; animation:fadeIn .25s ease;}
 @keyframes fadeIn{from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:translateY(0);}}
@@ -615,22 +648,23 @@ textarea.form-input{resize:vertical; min-height:76px;}
 
   <!-- PAGE : DAILY REPORT -->
   <div id="page-daily-report" style="display:none;">
-    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.1rem; flex-wrap:wrap; gap:.75rem;">
-      <div style="display:flex; align-items:center; gap:.6rem; font-size:.85rem; color:var(--ink-soft);">
-        <span id="reportDate">10 avril 2025</span>
-        <span class="badge badge-info" id="currentStaff"><span data-i18n="report.staffLabel">Personnel</span> : Mohcine</span>
+    <div class="report-head">
+      <div>
+        <div class="report-head-title">📋 <span data-i18n="nav.dailyReport">Rapport quotidien</span></div>
+        <div class="report-head-sub" id="reportDate">10 avril 2025</div>
       </div>
+      <span class="badge" id="currentStaff"><span data-i18n="report.staffLabel">Personnel</span> : Mohcine</span>
     </div>
     <div class="shift-switch">
-      <button class="shift-tab active" data-shift="morning">🌅 <span data-i18n="shift.morning">Matin</span></button>
-      <button class="shift-tab" data-shift="evening">🌆 <span data-i18n="shift.evening">Soir</span></button>
-      <button class="shift-tab" data-shift="night">🌙 <span data-i18n="shift.night">Nuit</span></button>
+      <button class="shift-tab active" data-shift="morning"><span class="shift-ico">🌅</span><span class="shift-txt"><span class="shift-name" data-i18n="shift.morning">Matin</span><span class="shift-time">07:00 – 13:00</span></span></button>
+      <button class="shift-tab" data-shift="evening"><span class="shift-ico">🌆</span><span class="shift-txt"><span class="shift-name" data-i18n="shift.evening">Soir</span><span class="shift-time">13:00 – 19:00</span></span></button>
+      <button class="shift-tab" data-shift="night"><span class="shift-ico">🌙</span><span class="shift-txt"><span class="shift-name" data-i18n="shift.night">Nuit</span><span class="shift-time">19:00 – 07:00</span></span></button>
     </div>
 
     <!-- Morning -->
     <div class="shift-content active" id="shift-morning">
       <div class="card" style="margin-bottom:1.1rem;">
-        <div class="card-title"><span data-i18n="checklist.titleMorning">Liste de contrôle — matin</span></div>
+        <div class="card-title"><span class="ct-ico">✅</span><span data-i18n="checklist.titleMorning">Liste de contrôle — matin</span></div>
         <div class="checklist-row"><span data-i18n="checklist.hospitalArea">Zone hospitalière nettoyée</span><div class="radio-group"><label class="radio-opt"><input type="radio" name="m_task1"/><span data-i18n="common.yes">Oui</span></label><label class="radio-opt"><input type="radio" name="m_task1"/><span data-i18n="common.no">Non</span></label><label class="radio-opt"><input type="radio" name="m_task1"/><span data-i18n="common.na">N/A</span></label></div></div>
         <div class="checklist-row"><span data-i18n="checklist.foodGiven">Nourriture administrée</span><div class="radio-group"><label class="radio-opt"><input type="radio" name="m_task2"/><span data-i18n="common.yes">Oui</span></label><label class="radio-opt"><input type="radio" name="m_task2"/><span data-i18n="common.no">Non</span></label><label class="radio-opt"><input type="radio" name="m_task2"/><span data-i18n="common.na">N/A</span></label></div></div>
         <div class="checklist-row"><span data-i18n="checklist.dogsMedicated">Chiens médicamentés</span><div class="radio-group"><label class="radio-opt"><input type="radio" name="m_task3"/><span data-i18n="common.yes">Oui</span></label><label class="radio-opt"><input type="radio" name="m_task3"/><span data-i18n="common.no">Non</span></label><label class="radio-opt"><input type="radio" name="m_task3"/><span data-i18n="common.na">N/A</span></label></div></div>
@@ -640,16 +674,16 @@ textarea.form-input{resize:vertical; min-height:76px;}
         <div class="checklist-row"><span data-i18n="checklist.mopChanged">Serpillière changée (dimanche uniquement)</span><div class="radio-group"><label class="radio-opt"><input type="radio" name="m_task7"/><span data-i18n="common.yes">Oui</span></label><label class="radio-opt"><input type="radio" name="m_task7"/><span data-i18n="common.no">Non</span></label><label class="radio-opt"><input type="radio" name="m_task7"/><span data-i18n="common.na">N/A</span></label></div></div>
       </div>
       <div class="card" style="margin-bottom:1.1rem;">
-        <div class="card-title"><span data-i18n="report.dogUpdates">Mises à jour des chiens</span></div>
+        <div class="card-title"><span class="ct-ico">🐕</span><span data-i18n="report.dogUpdates">Mises à jour des chiens</span></div>
         <div class="grid-2b">
-          <div><div class="form-label"><span data-i18n="report.dogsNeedAttention">Chiens nécessitant attention</span></div><select class="form-input" multiple style="height:80px;"><option>Rocky — Diarrhée</option><option>Neve — Léthargique</option><option>Max — Sous poids</option></select></div>
-          <div><div class="form-label"><span data-i18n="report.injuries">Blessures / problèmes</span></div><select class="form-input" multiple style="height:80px;"><option>Luna — Tension au chenil</option><option>Bella — Combat avec Max</option></select></div>
+          <div><div class="form-label"><span data-i18n="report.dogsNeedAttention">Chiens nécessitant attention</span></div><textarea class="form-input" id="attention_morning" style="min-height:80px;" placeholder="Ex : Rocky — diarrhée, Neve — léthargique..."></textarea></div>
+          <div><div class="form-label"><span data-i18n="report.injuries">Blessures / problèmes</span></div><textarea class="form-input" id="injuries_morning" style="min-height:80px;" placeholder="Ex : Luna — tension au chenil..."></textarea></div>
         </div>
         <div style="margin-top:.85rem;"><div class="form-label"><span data-i18n="report.additionalNotes">Notes supplémentaires</span></div><textarea class="form-input" id="notes_morning" placeholder="Décrivez les problèmes, observations ou préoccupations..."></textarea></div>
       </div>
       <div class="grid-2b" style="margin-bottom:1.1rem;">
         <div class="card">
-          <div class="card-title"><span data-i18n="report.suppliesNeeded">Fournitures nécessaires</span></div>
+          <div class="card-title"><span class="ct-ico">📦</span><span data-i18n="report.suppliesNeeded">Fournitures nécessaires</span></div>
           <div style="display:flex; flex-direction:column; gap:.5rem;">
             <div style="display:flex; gap:.5rem; flex-wrap:wrap;"><input class="form-input" placeholder="Nom de l'article" style="flex:1; min-width:120px;"/><input class="form-input" placeholder="Qté" style="width:75px;"/><select class="form-input" style="width:auto;"><option>Normal</option><option>Important</option><option>Urgent</option></select></div>
             <button class="btn btn-outline btn-sm" style="width:fit-content;" data-i18n="report.addSupply">+ Ajouter une fourniture</button>
@@ -657,7 +691,7 @@ textarea.form-input{resize:vertical; min-height:76px;}
           <div style="margin-top:.75rem; font-size:.8rem; color:var(--ink-soft);">⚠️ Lait en poudre (stock faible) · ⚠️ Déparasitant (3 unités restantes)</div>
         </div>
         <div class="card">
-          <div class="card-title"><span data-i18n="report.repairs">Réparations</span></div>
+          <div class="card-title"><span class="ct-ico">🔧</span><span data-i18n="report.repairs">Réparations</span></div>
           <div style="display:flex; flex-direction:column; gap:.5rem;">
             <div style="display:flex; gap:.5rem; flex-wrap:wrap;"><input class="form-input" placeholder="Localisation" style="flex:1; min-width:100px;"/><input class="form-input" placeholder="Problème" style="flex:2; min-width:120px;"/></div>
             <div style="display:flex; gap:.5rem;"><select class="form-input"><option data-i18n="priority.low">Faible</option><option data-i18n="priority.medium">Moyen</option><option data-i18n="priority.high">Élevé</option></select><button class="btn btn-outline btn-sm" data-i18n="common.add">+ Ajouter</button></div>
@@ -674,7 +708,7 @@ textarea.form-input{resize:vertical; min-height:76px;}
     <!-- Evening -->
     <div class="shift-content" id="shift-evening">
       <div class="card" style="margin-bottom:1.1rem;">
-        <div class="card-title"><span data-i18n="checklist.titleEvening">Liste de contrôle — soir</span></div>
+        <div class="card-title"><span class="ct-ico">✅</span><span data-i18n="checklist.titleEvening">Liste de contrôle — soir</span></div>
         <div class="checklist-row"><span data-i18n="checklist.hospitalArea">Zone hospitalière nettoyée</span><div class="radio-group"><label class="radio-opt"><input type="radio" name="e_task1"/><span data-i18n="common.yes">Oui</span></label><label class="radio-opt"><input type="radio" name="e_task1"/><span data-i18n="common.no">Non</span></label><label class="radio-opt"><input type="radio" name="e_task1"/><span data-i18n="common.na">N/A</span></label></div></div>
         <div class="checklist-row"><span data-i18n="checklist.foodGiven">Nourriture administrée</span><div class="radio-group"><label class="radio-opt"><input type="radio" name="e_task2"/><span data-i18n="common.yes">Oui</span></label><label class="radio-opt"><input type="radio" name="e_task2"/><span data-i18n="common.no">Non</span></label><label class="radio-opt"><input type="radio" name="e_task2"/><span data-i18n="common.na">N/A</span></label></div></div>
         <div class="checklist-row"><span data-i18n="checklist.dogsMedicated">Chiens médicamentés</span><div class="radio-group"><label class="radio-opt"><input type="radio" name="e_task3"/><span data-i18n="common.yes">Oui</span></label><label class="radio-opt"><input type="radio" name="e_task3"/><span data-i18n="common.no">Non</span></label><label class="radio-opt"><input type="radio" name="e_task3"/><span data-i18n="common.na">N/A</span></label></div></div>
@@ -684,16 +718,16 @@ textarea.form-input{resize:vertical; min-height:76px;}
         <div class="checklist-row"><span data-i18n="checklist.mopChanged">Serpillière changée (dimanche uniquement)</span><div class="radio-group"><label class="radio-opt"><input type="radio" name="e_task7"/><span data-i18n="common.yes">Oui</span></label><label class="radio-opt"><input type="radio" name="e_task7"/><span data-i18n="common.no">Non</span></label><label class="radio-opt"><input type="radio" name="e_task7"/><span data-i18n="common.na">N/A</span></label></div></div>
       </div>
       <div class="card" style="margin-bottom:1.1rem;">
-        <div class="card-title"><span data-i18n="report.dogUpdates">Mises à jour des chiens</span></div>
+        <div class="card-title"><span class="ct-ico">🐕</span><span data-i18n="report.dogUpdates">Mises à jour des chiens</span></div>
         <div class="grid-2b">
-          <div><div class="form-label"><span data-i18n="report.dogsNeedAttention">Chiens nécessitant attention</span></div><select class="form-input" multiple style="height:80px;"><option>Rocky — Diarrhée</option><option>Neve — Léthargique</option><option>Max — Sous poids</option></select></div>
-          <div><div class="form-label"><span data-i18n="report.injuries">Blessures / problèmes</span></div><select class="form-input" multiple style="height:80px;"><option>Luna — Tension au chenil</option><option>Bella — Combat avec Max</option></select></div>
+          <div><div class="form-label"><span data-i18n="report.dogsNeedAttention">Chiens nécessitant attention</span></div><textarea class="form-input" id="attention_evening" style="min-height:80px;" placeholder="Ex : Rocky — diarrhée, Neve — léthargique..."></textarea></div>
+          <div><div class="form-label"><span data-i18n="report.injuries">Blessures / problèmes</span></div><textarea class="form-input" id="injuries_evening" style="min-height:80px;" placeholder="Ex : Luna — tension au chenil..."></textarea></div>
         </div>
         <div style="margin-top:.85rem;"><div class="form-label"><span data-i18n="report.additionalNotes">Notes supplémentaires</span></div><textarea class="form-input" id="notes_evening" placeholder="Décrivez les problèmes, observations ou préoccupations..."></textarea></div>
       </div>
       <div class="grid-2b" style="margin-bottom:1.1rem;">
         <div class="card">
-          <div class="card-title"><span data-i18n="report.suppliesNeeded">Fournitures nécessaires</span></div>
+          <div class="card-title"><span class="ct-ico">📦</span><span data-i18n="report.suppliesNeeded">Fournitures nécessaires</span></div>
           <div style="display:flex; flex-direction:column; gap:.5rem;">
             <div style="display:flex; gap:.5rem; flex-wrap:wrap;"><input class="form-input" placeholder="Nom de l'article" style="flex:1; min-width:120px;"/><input class="form-input" placeholder="Qté" style="width:75px;"/><select class="form-input" style="width:auto;"><option>Normal</option><option>Important</option><option>Urgent</option></select></div>
             <button class="btn btn-outline btn-sm" style="width:fit-content;" data-i18n="report.addSupply">+ Ajouter une fourniture</button>
@@ -701,7 +735,7 @@ textarea.form-input{resize:vertical; min-height:76px;}
           <div style="margin-top:.75rem; font-size:.8rem; color:var(--ink-soft);">⚠️ Lait en poudre (stock faible) · ⚠️ Déparasitant (3 unités restantes)</div>
         </div>
         <div class="card">
-          <div class="card-title"><span data-i18n="report.repairs">Réparations</span></div>
+          <div class="card-title"><span class="ct-ico">🔧</span><span data-i18n="report.repairs">Réparations</span></div>
           <div style="display:flex; flex-direction:column; gap:.5rem;">
             <div style="display:flex; gap:.5rem; flex-wrap:wrap;"><input class="form-input" placeholder="Localisation" style="flex:1; min-width:100px;"/><input class="form-input" placeholder="Problème" style="flex:2; min-width:120px;"/></div>
             <div style="display:flex; gap:.5rem;"><select class="form-input"><option data-i18n="priority.low">Faible</option><option data-i18n="priority.medium">Moyen</option><option data-i18n="priority.high">Élevé</option></select><button class="btn btn-outline btn-sm" data-i18n="common.add">+ Ajouter</button></div>
@@ -718,7 +752,7 @@ textarea.form-input{resize:vertical; min-height:76px;}
     <!-- Night -->
     <div class="shift-content" id="shift-night">
       <div class="card" style="margin-bottom:1.1rem;">
-        <div class="card-title"><span data-i18n="checklist.titleNight">Liste de contrôle — nuit</span></div>
+        <div class="card-title"><span class="ct-ico">✅</span><span data-i18n="checklist.titleNight">Liste de contrôle — nuit</span></div>
         <div class="checklist-row"><span data-i18n="checklist.hospitalArea">Zone hospitalière nettoyée</span><div class="radio-group"><label class="radio-opt"><input type="radio" name="n_task1"/><span data-i18n="common.yes">Oui</span></label><label class="radio-opt"><input type="radio" name="n_task1"/><span data-i18n="common.no">Non</span></label><label class="radio-opt"><input type="radio" name="n_task1"/><span data-i18n="common.na">N/A</span></label></div></div>
         <div class="checklist-row"><span data-i18n="checklist.foodGiven">Nourriture administrée</span><div class="radio-group"><label class="radio-opt"><input type="radio" name="n_task2"/><span data-i18n="common.yes">Oui</span></label><label class="radio-opt"><input type="radio" name="n_task2"/><span data-i18n="common.no">Non</span></label><label class="radio-opt"><input type="radio" name="n_task2"/><span data-i18n="common.na">N/A</span></label></div></div>
         <div class="checklist-row"><span data-i18n="checklist.dogsMedicated">Chiens médicamentés</span><div class="radio-group"><label class="radio-opt"><input type="radio" name="n_task3"/><span data-i18n="common.yes">Oui</span></label><label class="radio-opt"><input type="radio" name="n_task3"/><span data-i18n="common.no">Non</span></label><label class="radio-opt"><input type="radio" name="n_task3"/><span data-i18n="common.na">N/A</span></label></div></div>
@@ -728,16 +762,16 @@ textarea.form-input{resize:vertical; min-height:76px;}
         <div class="checklist-row"><span data-i18n="checklist.mopChanged">Serpillière changée (dimanche uniquement)</span><div class="radio-group"><label class="radio-opt"><input type="radio" name="n_task7"/><span data-i18n="common.yes">Oui</span></label><label class="radio-opt"><input type="radio" name="n_task7"/><span data-i18n="common.no">Non</span></label><label class="radio-opt"><input type="radio" name="n_task7"/><span data-i18n="common.na">N/A</span></label></div></div>
       </div>
       <div class="card" style="margin-bottom:1.1rem;">
-        <div class="card-title"><span data-i18n="report.dogUpdates">Mises à jour des chiens</span></div>
+        <div class="card-title"><span class="ct-ico">🐕</span><span data-i18n="report.dogUpdates">Mises à jour des chiens</span></div>
         <div class="grid-2b">
-          <div><div class="form-label"><span data-i18n="report.dogsNeedAttention">Chiens nécessitant attention</span></div><select class="form-input" multiple style="height:80px;"><option>Rocky — Diarrhée</option><option>Neve — Léthargique</option><option>Max — Sous poids</option></select></div>
-          <div><div class="form-label"><span data-i18n="report.injuries">Blessures / problèmes</span></div><select class="form-input" multiple style="height:80px;"><option>Luna — Tension au chenil</option><option>Bella — Combat avec Max</option></select></div>
+          <div><div class="form-label"><span data-i18n="report.dogsNeedAttention">Chiens nécessitant attention</span></div><textarea class="form-input" id="attention_night" style="min-height:80px;" placeholder="Ex : Rocky — diarrhée, Neve — léthargique..."></textarea></div>
+          <div><div class="form-label"><span data-i18n="report.injuries">Blessures / problèmes</span></div><textarea class="form-input" id="injuries_night" style="min-height:80px;" placeholder="Ex : Luna — tension au chenil..."></textarea></div>
         </div>
         <div style="margin-top:.85rem;"><div class="form-label"><span data-i18n="report.additionalNotes">Notes supplémentaires</span></div><textarea class="form-input" id="notes_night" placeholder="Décrivez les problèmes, observations ou préoccupations..."></textarea></div>
       </div>
       <div class="grid-2b" style="margin-bottom:1.1rem;">
         <div class="card">
-          <div class="card-title"><span data-i18n="report.suppliesNeeded">Fournitures nécessaires</span></div>
+          <div class="card-title"><span class="ct-ico">📦</span><span data-i18n="report.suppliesNeeded">Fournitures nécessaires</span></div>
           <div style="display:flex; flex-direction:column; gap:.5rem;">
             <div style="display:flex; gap:.5rem; flex-wrap:wrap;"><input class="form-input" placeholder="Nom de l'article" style="flex:1; min-width:120px;"/><input class="form-input" placeholder="Qté" style="width:75px;"/><select class="form-input" style="width:auto;"><option>Normal</option><option>Important</option><option>Urgent</option></select></div>
             <button class="btn btn-outline btn-sm" style="width:fit-content;" data-i18n="report.addSupply">+ Ajouter une fourniture</button>
@@ -745,7 +779,7 @@ textarea.form-input{resize:vertical; min-height:76px;}
           <div style="margin-top:.75rem; font-size:.8rem; color:var(--ink-soft);">⚠️ Lait en poudre (stock faible) · ⚠️ Déparasitant (3 unités restantes)</div>
         </div>
         <div class="card">
-          <div class="card-title"><span data-i18n="report.repairs">Réparations</span></div>
+          <div class="card-title"><span class="ct-ico">🔧</span><span data-i18n="report.repairs">Réparations</span></div>
           <div style="display:flex; flex-direction:column; gap:.5rem;">
             <div style="display:flex; gap:.5rem; flex-wrap:wrap;"><input class="form-input" placeholder="Localisation" style="flex:1; min-width:100px;"/><input class="form-input" placeholder="Problème" style="flex:2; min-width:120px;"/></div>
             <div style="display:flex; gap:.5rem;"><select class="form-input"><option data-i18n="priority.low">Faible</option><option data-i18n="priority.medium">Moyen</option><option data-i18n="priority.high">Élevé</option></select><button class="btn btn-outline btn-sm" data-i18n="common.add">+ Ajouter</button></div>
@@ -1056,7 +1090,7 @@ textarea.form-input{resize:vertical; min-height:76px;}
       <div style="margin-top:10px; font-size:.88rem; color:var(--ink-soft); line-height:1.6;">
         🐕 <strong>Beldi Dog Rescue Morocco</strong><br/>
         Route d'Akchour, Talambote, Maroc 🇲🇦<br/>
-        📧 <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="0163646d656873646774666441666c60686d2f626e6c">[email&#160;protected]</a><br/>
+        📧 <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="54363138303d263132213331143339353d387a373b39">[email&#160;protected]</a><br/>
         🔗 linktr.ee/beldidogrescue<br/>
         <span style="font-size:.78rem;">Version 1.1 — site géré par l'équipe Beldi</span>
       </div>
@@ -2052,7 +2086,14 @@ async function saveNewAnimal(){
 
 async function submitDailyReport(shift){
   const notesEl = document.getElementById('notes_' + shift);
-  const notes = notesEl ? notesEl.value.trim() : '';
+  const attEl = document.getElementById('attention_' + shift);
+  const injEl = document.getElementById('injuries_' + shift);
+
+  const parts = [];
+  if(attEl && attEl.value.trim()) parts.push('🐕 Attention : ' + attEl.value.trim());
+  if(injEl && injEl.value.trim()) parts.push('🩹 Blessures/problèmes : ' + injEl.value.trim());
+  if(notesEl && notesEl.value.trim()) parts.push('📝 Notes : ' + notesEl.value.trim());
+  const notes = parts.join('\n');
 
   const btn = document.getElementById('submitBtn_' + shift);
   btn.disabled = true;
@@ -2478,5 +2519,5 @@ new MutationObserver(() => {
 }).observe(document.getElementById('page-ai-assistant') || document.body, { attributes:true, attributeFilter:['style'] });
 document.addEventListener('DOMContentLoaded', () => { setTimeout(chatInit, 800); });
 </script>
-<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a3a76592285286d9',t:'MTc4OTMwNTA3NQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</body>
 </html>
