@@ -258,6 +258,35 @@ html[dir="rtl"] .grid-2b{direction:rtl;}
 .animal-toolbar{display:flex; justify-content:space-between; align-items:center; margin-bottom:1.25rem; flex-wrap:wrap; gap:.75rem;}
 .animal-filters{display:flex; gap:.5rem; flex-wrap:wrap;}
 .animal-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:1.1rem;}
+
+/* ===== Galerie ===== */
+.gal-filters{display:flex; gap:.45rem; flex-wrap:wrap; margin-bottom:1rem;}
+.gal-filter{border:1.5px solid var(--line); background:var(--white); color:var(--ink-soft); border-radius:8px; padding:.45rem .85rem; font-size:.78rem; font-weight:600; cursor:pointer; font-family:inherit; transition:all .15s;}
+.gal-filter:hover{border-color:var(--clay);}
+.gal-filter.active{background:var(--clay); border-color:var(--clay-dark); color:#fff;}
+.gal-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:.7rem;}
+@media(max-width:640px){.gal-grid{grid-template-columns:repeat(2,1fr);}}
+.gal-item{position:relative; border-radius:var(--radius-s); overflow:hidden; cursor:pointer; background:var(--sable-2); aspect-ratio:1/1; border:1px solid var(--line);}
+.gal-item img{width:100%; height:100%; object-fit:cover; transition:transform .25s;}
+.gal-item:hover img{transform:scale(1.05);}
+.gal-item .gal-cat{position:absolute; top:.5rem; left:.5rem; background:rgba(44,36,28,.72); color:#fff; font-size:.62rem; font-weight:600; padding:.2rem .5rem; border-radius:6px;}
+.gal-ba{display:grid; grid-template-columns:1fr 1fr; height:100%;}
+.gal-ba img{height:100%;}
+.gal-ba-tag{position:absolute; bottom:.5rem; font-size:.6rem; font-weight:700; padding:.15rem .45rem; border-radius:5px; color:#fff;}
+.gal-caption{position:absolute; inset-inline:0; bottom:0; background:linear-gradient(transparent, rgba(44,36,28,.85)); color:#fff; font-size:.72rem; padding:1.2rem .6rem .5rem; opacity:0; transition:opacity .2s;}
+.gal-item:hover .gal-caption{opacity:1;}
+/* lightbox */
+#galLightbox{position:fixed; inset:0; z-index:1000; background:rgba(30,24,18,.92); display:none; align-items:center; justify-content:center; padding:1rem;}
+#galLightbox.open{display:flex;}
+#galLightbox .glb-inner{max-width:920px; width:100%; max-height:92vh; display:flex; flex-direction:column;}
+#galLightbox img{max-width:100%; max-height:74vh; object-fit:contain; border-radius:10px;}
+#galLightbox .glb-ba{display:grid; grid-template-columns:1fr 1fr; gap:.5rem;}
+#galLightbox .glb-cap{color:#fff; text-align:center; padding:.8rem .5rem 0; font-size:.9rem;}
+#galLightbox .glb-close{position:absolute; top:1rem; right:1.2rem; background:rgba(255,255,255,.15); border:none; color:#fff; width:38px; height:38px; border-radius:9px; font-size:1.1rem; cursor:pointer;}
+/* admin gallery list */
+.gal-admin-row{display:flex; align-items:center; gap:.7rem; padding:.55rem 0; border-bottom:1px solid var(--line); font-size:.82rem;}
+.gal-admin-row:last-child{border-bottom:none;}
+.gal-admin-thumb{width:52px; height:52px; border-radius:8px; object-fit:cover; flex:none; background:var(--sable-2); border:1px solid var(--line);}
 .animal-card{
   background:var(--white); border:1px solid var(--line); border-radius:var(--radius-m);
   overflow:hidden; cursor:pointer; transition:transform .15s, box-shadow .15s;
@@ -409,6 +438,25 @@ textarea.form-input{resize:vertical; min-height:76px;}
     <button class="btn btn-outline" onclick="showTeamLogin()" style="font-size:.8rem;">Espace équipe</button>
   </header>
 
+  <!-- ===== Assistant Beldi — affiché en entier sur la page publique ===== -->
+  <div id="miniChat" style="background:var(--white); border:1px solid var(--line); border-radius:var(--radius-m); margin:.9rem 1.2rem; overflow:hidden; box-shadow:0 6px 18px -10px rgba(181,80,46,.35);">
+    <div style="display:flex; align-items:center; gap:.7rem; padding:.8rem 1.1rem; background:linear-gradient(135deg,var(--clay),var(--clay-dark)); color:#fff;">
+      <span style="width:34px; height:34px; border-radius:9px; background:rgba(255,255,255,.18); display:grid; place-items:center; font-size:1.05rem; flex:none;">🐾</span>
+      <div style="flex:1; min-width:0;">
+        <div style="font-weight:700; font-size:.92rem;">Assistant Beldi</div>
+        <div style="font-size:.72rem; opacity:.85;">Une question ? Adoption, dons, urgence… je réponds !</div>
+      </div>
+    </div>
+    <div id="miniChatBody">
+      <div id="miniChatQuick" style="display:flex; gap:.4rem; flex-wrap:wrap; padding:.7rem .8rem 0;"></div>
+      <div id="miniChatMessages" style="max-height:300px; min-height:120px; overflow-y:auto; padding:12px 14px; background:var(--sable); display:flex; flex-direction:column; gap:8px; margin-top:.6rem;"></div>
+      <div style="display:flex; gap:.5rem; padding:.6rem .8rem; border-top:1px solid var(--line); background:var(--white);">
+        <input id="miniChatInput" type="text" style="flex:1; min-width:0; padding:9px 12px; border:1px solid var(--line); border-radius:10px; background:var(--sable); color:var(--ink); font-size:.88rem; outline:none;" placeholder="Posez votre question…"/>
+        <button class="btn btn-primary btn-sm" onclick="miniChatSend()">➤</button>
+      </div>
+    </div>
+  </div>
+
   <!-- Hero -->
   <section style="position:relative; min-height:340px; display:flex; align-items:flex-end; background:linear-gradient(180deg, rgba(44,36,28,.05), rgba(44,36,28,.55)), var(--clay); background-size:cover; background-position:center; padding:2rem 1.2rem;">
     <div style="color:#fff; max-width:520px;">
@@ -442,9 +490,33 @@ textarea.form-input{resize:vertical; min-height:76px;}
     </div>
   </section>
 
+  <!-- Galerie publique -->
+  <section style="padding:1.8rem 1.2rem; background:var(--sable);" id="publicGallerySection">
+    <h2 style="font-family:'Fraunces',serif; font-weight:600; font-size:1.3rem; color:var(--ink); margin-bottom:1rem;">📸 La vie au refuge</h2>
+    <div class="gal-filters" id="galFilters">
+      <button class="gal-filter active" data-cat="all" onclick="galFilter('all',this)">Tout</button>
+      <button class="gal-filter" data-cat="sauvetage" onclick="galFilter('sauvetage',this)">🆘 Sauvetages</button>
+      <button class="gal-filter" data-cat="avantapres" onclick="galFilter('avantapres',this)">✨ Avant / Après</button>
+      <button class="gal-filter" data-cat="quotidien" onclick="galFilter('quotidien',this)">🐾 Vie au refuge</button>
+      <button class="gal-filter" data-cat="adopte" onclick="galFilter('adopte',this)">🏠 Adoptés</button>
+    </div>
+    <div class="gal-grid" id="publicGalleryGrid">
+      <div style="grid-column:1/-1; padding:1.5rem; text-align:center; color:var(--ink-soft); font-size:.85rem;">Chargement de la galerie...</div>
+    </div>
+  </section>
+
   <footer style="text-align:center; padding:2rem 1.2rem; color:var(--ink-soft); font-size:.78rem; border-top:1px solid var(--sable-2);">
     Beldi Dog Rescue Morocco · Refuge basé à Chefchaouen
   </footer>
+</div>
+
+<!-- Lightbox galerie -->
+<div id="galLightbox" onclick="if(event.target===this)this.classList.remove('open')">
+  <button class="glb-close" onclick="document.getElementById('galLightbox').classList.remove('open')">✕</button>
+  <div class="glb-inner">
+    <div id="glbMedia"></div>
+    <div class="glb-cap" id="glbCaption"></div>
+  </div>
 </div>
 
 <!-- Détail public d'un chien (lecture seule) -->
@@ -513,6 +585,7 @@ textarea.form-input{resize:vertical; min-height:76px;}
     <a class="nav-item" data-page="operations"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg> <span data-i18n="nav.operations">Opérations</span></a>
     <a class="nav-item" data-page="team"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3.2"/><path d="M2.5 20c.7-3.4 3.2-5.5 6.5-5.5s5.8 2.1 6.5 5.5"/><circle cx="17.5" cy="8.5" r="2.4"/><path d="M16 14.7c2.4.2 4.1 1.9 4.7 4.8"/></svg> <span data-i18n="nav.team">Équipe</span></a>
     <a class="nav-item" data-page="calendar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg> <span data-i18n="nav.calendar">Calendrier</span></a>
+    <a class="nav-item" data-page="gallery"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10" r="1.6"/><path d="M21 16l-5-5-4 4-2-2-7 6"/></svg> <span data-i18n="nav.gallery">Galerie</span></a>
     <a class="nav-item" data-page="ai-assistant"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="7" width="16" height="12" rx="3"/><path d="M12 3v4M9 13v.01M15 13v.01"/></svg> <span data-i18n="nav.aiAssistant">Assistant IA</span></a>
     <a class="nav-item" data-page="settings"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19.4 13.5a7.9 7.9 0 000-3l1.9-1.5-2-3.4-2.2.9a8 8 0 00-2.6-1.5L14 2h-4l-.5 2.4a8 8 0 00-2.6 1.5l-2.2-.9-2 3.4L4.6 10.5a7.9 7.9 0 000 3L2.7 15l2 3.4 2.2-.9c.8.65 1.65 1.15 2.6 1.5L10 22h4l.5-2.4a8 8 0 002.6-1.5l2.2.9 2-3.4-1.9-1.6z"/></svg> <span data-i18n="nav.settings">Paramètres</span></a>
   </nav>
@@ -1052,6 +1125,43 @@ textarea.form-input{resize:vertical; min-height:76px;}
       <div id="eventList" style="margin-top:10px; display:flex; flex-direction:column; gap:8px;"></div>
     </div>
   </div>
+  <div id="page-gallery" style="display:none;">
+    <div class="card" style="margin-bottom:1.1rem;">
+      <div class="card-title"><span class="ct-ico">📸</span><span>Ajouter à la galerie</span></div>
+      <div class="grid-2b" style="margin-bottom:.85rem;">
+        <div>
+          <div class="form-label">Catégorie</div>
+          <select class="form-input" id="gType" onchange="galTypeChanged()">
+            <option value="sauvetage">🆘 Sauvetage</option>
+            <option value="quotidien">🐾 Vie au refuge</option>
+            <option value="adopte">🏠 Adopté / Happy end</option>
+            <option value="avantapres">✨ Avant / Après</option>
+          </select>
+        </div>
+        <div>
+          <div class="form-label">Titre / légende</div>
+          <input class="form-input" id="gCaption" placeholder="Ex : Rocky à son arrivée, novembre 2025"/>
+        </div>
+      </div>
+      <div class="grid-2b" style="margin-bottom:.85rem;">
+        <div>
+          <div class="form-label" id="gPhotoLabel">Photo</div>
+          <input class="form-input" type="file" id="gFile" accept="image/*"/>
+        </div>
+        <div id="gAfterWrap" style="display:none;">
+          <div class="form-label">Photo « Après »</div>
+          <input class="form-input" type="file" id="gFileAfter" accept="image/*"/>
+        </div>
+      </div>
+      <button class="btn btn-primary" id="gAddBtn" onclick="galAdd()">📤 Publier dans la galerie</button>
+      <div id="gStatus" style="margin-top:.6rem; font-size:.8rem; color:var(--ink-soft);"></div>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="ct-ico">🗂️</span><span>Contenu publié</span></div>
+      <div id="galAdminList"><div style="padding:1rem; color:var(--ink-soft); font-size:.85rem;">Chargement...</div></div>
+    </div>
+  </div>
+
   <div id="page-ai-assistant" style="display:none;">
     <div class="card" style="max-width:760px; margin:0 auto; padding:0; overflow:hidden;">
       <div style="background:var(--clay); color:#fff; padding:16px 20px; display:flex; align-items:center; gap:12px;">
@@ -1090,7 +1200,7 @@ textarea.form-input{resize:vertical; min-height:76px;}
       <div style="margin-top:10px; font-size:.88rem; color:var(--ink-soft); line-height:1.6;">
         🐕 <strong>Beldi Dog Rescue Morocco</strong><br/>
         Route d'Akchour, Talambote, Maroc 🇲🇦<br/>
-        📧 <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="54363138303d263132213331143339353d387a373b39">[email&#160;protected]</a><br/>
+        📧 <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="3351565f575a41565546545673545e525a5f1d505c5e">[email&#160;protected]</a><br/>
         🔗 linktr.ee/beldidogrescue<br/>
         <span style="font-size:.78rem;">Version 1.1 — site géré par l'équipe Beldi</span>
       </div>
@@ -2335,7 +2445,7 @@ function chatLang(){
 }
 
 function chatAddMsg(text, who){
-  const box = document.getElementById('chatMessages');
+  const box = document.getElementById(window.CHAT_BOX_ID || 'chatMessages');
   const b = document.createElement('div');
   const isUser = who === 'user';
   b.style.cssText = 'max-width:82%; padding:10px 14px; border-radius:14px; font-size:.9rem; line-height:1.45; white-space:pre-line;' +
@@ -2368,7 +2478,7 @@ async function chatAnswer(q){
       let ans = it.a;
       if(it.dynamic === 'animals'){
         chatAddMsg("🐾 ...", 'bot');
-        const box = document.getElementById('chatMessages');
+        const box = document.getElementById(window.CHAT_BOX_ID || 'chatMessages');
         const loading = box.lastChild;
         const animals = await chatAnimalsText();
         loading.remove();
@@ -2409,6 +2519,229 @@ function chatInit(){
     if(e.key === 'Enter') chatSend();
   });
 }
+
+/* ===== Assistant Beldi de la page publique (même cerveau CHAT_KB) ===== */
+function miniChatInit(){
+  const body = document.getElementById('miniChatBody');
+  if(!body || body.dataset.ready) return;
+  body.dataset.ready = '1';
+  const kb = CHAT_KB[chatLang()];
+  window.CHAT_BOX_ID = 'miniChatMessages';
+  chatAddMsg(kb.hello, 'bot');
+  window.CHAT_BOX_ID = null;
+  const quick = document.getElementById('miniChatQuick');
+  if(quick){
+    quick.innerHTML = '';
+    kb.intents.filter(i => i.quick).forEach(i => {
+      const btn = document.createElement('button');
+      btn.textContent = i.quick;
+      btn.style.cssText = 'background:var(--clay-tint); color:var(--clay-dark); border:1px solid var(--line); border-radius:20px; padding:6px 11px; font-size:.76rem; cursor:pointer; font-weight:600;';
+      btn.onclick = () => miniChatSend(i.quick.replace(/^[^\s]+\s/, ''));
+      quick.appendChild(btn);
+    });
+  }
+}
+
+async function miniChatSend(prefill){
+  const input = document.getElementById('miniChatInput');
+  const q = (prefill !== undefined ? prefill : input.value).trim();
+  if(!q) return;
+  input.value = '';
+  window.CHAT_BOX_ID = 'miniChatMessages';
+  chatAddMsg(q, 'user');
+  const ans = await chatAnswer(q);
+  window.CHAT_BOX_ID = 'miniChatMessages';
+  chatAddMsg(ans, 'bot');
+  window.CHAT_BOX_ID = null;
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  setTimeout(() => {
+    miniChatInit();
+    const mi = document.getElementById('miniChatInput');
+    if(mi) mi.addEventListener('keydown', e => { if(e.key === 'Enter') miniChatSend(); });
+  }, 900);
+});
+
+/* ============ GALERIE ============ */
+const GAL_CATS = { sauvetage:'🆘 Sauvetage', quotidien:'🐾 Vie au refuge', adopte:'🏠 Adopté', avantapres:'✨ Avant / Après' };
+
+function galTypeChanged(){
+  const isBA = document.getElementById('gType').value === 'avantapres';
+  document.getElementById('gAfterWrap').style.display = isBA ? 'block' : 'none';
+  document.getElementById('gPhotoLabel').textContent = isBA ? 'Photo « Avant »' : 'Photo';
+}
+
+/* Compresse la photo (max 1200px, JPEG 80%) pour économiser le 1 Go gratuit */
+function galCompress(file){
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.onload = () => {
+      const MAX = 1200;
+      let w = img.width, h = img.height;
+      if(w > MAX || h > MAX){ const r = Math.min(MAX/w, MAX/h); w = Math.round(w*r); h = Math.round(h*r); }
+      const c = document.createElement('canvas');
+      c.width = w; c.height = h;
+      c.getContext('2d').drawImage(img, 0, 0, w, h);
+      c.toBlob(b => b ? resolve(b) : reject(new Error('compression')), 'image/jpeg', 0.8);
+    };
+    img.onerror = () => reject(new Error('lecture image'));
+    img.src = URL.createObjectURL(file);
+  });
+}
+
+async function galUploadOne(file){
+  const blob = await galCompress(file);
+  const name = Date.now() + '-' + Math.random().toString(36).slice(2,8) + '.jpg';
+  const { error } = await sb.storage.from('gallery').upload(name, blob, { contentType:'image/jpeg' });
+  if(error) throw error;
+  return sb.storage.from('gallery').getPublicUrl(name).data.publicUrl;
+}
+
+async function galAdd(){
+  const cat = document.getElementById('gType').value;
+  const caption = document.getElementById('gCaption').value.trim();
+  const f1 = document.getElementById('gFile').files[0];
+  const f2 = document.getElementById('gFileAfter').files[0];
+  const st = document.getElementById('gStatus');
+  const btn = document.getElementById('gAddBtn');
+
+  if(!f1){ st.textContent = '⚠️ Choisissez une photo d\'abord.'; return; }
+  if(cat === 'avantapres' && !f2){ st.textContent = '⚠️ Il faut les 2 photos : Avant ET Après.'; return; }
+
+  btn.disabled = true;
+  st.textContent = '⏳ Compression et envoi de la photo...';
+  try{
+    const url = await galUploadOne(f1);
+    let url_after = null;
+    if(cat === 'avantapres'){
+      st.textContent = '⏳ Envoi de la photo « Après »...';
+      url_after = await galUploadOne(f2);
+    }
+    const { error } = await sb.from('gallery').insert({ category:cat, caption:caption || null, url, url_after, visible:true });
+    if(error) throw error;
+    st.textContent = '✅ Publié dans la galerie !';
+    document.getElementById('gCaption').value = '';
+    document.getElementById('gFile').value = '';
+    document.getElementById('gFileAfter').value = '';
+    if(typeof showToast === 'function') showToast('Ajouté à la galerie ✅');
+    galLoadAdmin();
+    galLoadPublic();
+  }catch(e){
+    st.textContent = '❌ Erreur : ' + (e.message || e);
+  }
+  btn.disabled = false;
+}
+
+async function galFetch(){
+  try{
+    const { data, error } = await sb.from('gallery').select('*').order('created_at', { ascending:false });
+    if(error) return [];
+    return data || [];
+  }catch(e){ return []; }
+}
+
+function galItemHtml(g){
+  const cap = escapeHtml(g.caption || '');
+  if(g.category === 'avantapres' && g.url_after){
+    return `<div class="gal-item" data-cat="${g.category}" onclick="galOpen('${g.id}')">
+      <div class="gal-ba">
+        <img src="${escapeHtml(g.url)}" loading="lazy" alt=""/>
+        <img src="${escapeHtml(g.url_after)}" loading="lazy" alt=""/>
+      </div>
+      <span class="gal-ba-tag" style="left:.5rem; background:#c0392b;">AVANT</span>
+      <span class="gal-ba-tag" style="right:.5rem; background:#2e7d4f;">APRÈS</span>
+      ${cap ? `<div class="gal-caption">${cap}</div>` : ''}
+    </div>`;
+  }
+  return `<div class="gal-item" data-cat="${g.category}" onclick="galOpen('${g.id}')">
+    <img src="${escapeHtml(g.url)}" loading="lazy" alt=""/>
+    <span class="gal-cat">${GAL_CATS[g.category] || ''}</span>
+    ${cap ? `<div class="gal-caption">${cap}</div>` : ''}
+  </div>`;
+}
+
+async function galLoadPublic(){
+  const grid = document.getElementById('publicGalleryGrid');
+  if(!grid) return;
+  const items = (await galFetch()).filter(g => g.visible !== false);
+  window._galCache = items;
+  if(!items.length){
+    document.getElementById('publicGallerySection').style.display = 'none';
+    return;
+  }
+  document.getElementById('publicGallerySection').style.display = 'block';
+  grid.innerHTML = items.map(galItemHtml).join('');
+}
+
+function galFilter(cat, btn){
+  document.querySelectorAll('.gal-filter').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('#publicGalleryGrid .gal-item').forEach(it => {
+    it.style.display = (cat === 'all' || it.dataset.cat === cat) ? 'block' : 'none';
+  });
+}
+
+function galOpen(id){
+  const g = (window._galCache || []).find(x => String(x.id) === String(id));
+  if(!g) return;
+  const media = document.getElementById('glbMedia');
+  if(g.category === 'avantapres' && g.url_after){
+    media.innerHTML = `<div class="glb-ba">
+      <div style="text-align:center;"><img src="${escapeHtml(g.url)}"/><div style="color:#e57373; font-weight:700; font-size:.8rem; margin-top:.4rem;">AVANT</div></div>
+      <div style="text-align:center;"><img src="${escapeHtml(g.url_after)}"/><div style="color:#81c784; font-weight:700; font-size:.8rem; margin-top:.4rem;">APRÈS</div></div>
+    </div>`;
+  } else {
+    media.innerHTML = `<div style="text-align:center;"><img src="${escapeHtml(g.url)}"/></div>`;
+  }
+  document.getElementById('glbCaption').textContent = g.caption || '';
+  document.getElementById('galLightbox').classList.add('open');
+}
+
+async function galLoadAdmin(){
+  const list = document.getElementById('galAdminList');
+  if(!list) return;
+  const items = await galFetch();
+  if(!items.length){
+    list.innerHTML = '<div style="padding:1rem; color:var(--ink-soft); font-size:.85rem;">Aucun contenu pour l\'instant. Ajoutez votre première photo ci-dessus ! 📸</div>';
+    return;
+  }
+  list.innerHTML = items.map(g => `
+    <div class="gal-admin-row">
+      <img class="gal-admin-thumb" src="${escapeHtml(g.url)}" alt=""/>
+      <div style="flex:1; min-width:0;">
+        <div style="font-weight:600; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">${escapeHtml(g.caption || '(sans légende)')}</div>
+        <div style="font-size:.72rem; color:var(--ink-soft);">${GAL_CATS[g.category] || g.category}${g.visible === false ? ' · 🙈 masqué' : ''}</div>
+      </div>
+      <button class="btn btn-outline btn-sm" onclick="galToggleVisible('${g.id}', ${g.visible === false})">${g.visible === false ? '👁️ Afficher' : '🙈 Masquer'}</button>
+      <button class="btn btn-outline btn-sm" onclick="galDelete('${g.id}')" style="color:var(--alert);">🗑️</button>
+    </div>
+  `).join('');
+}
+
+async function galToggleVisible(id, makeVisible){
+  await sb.from('gallery').update({ visible: makeVisible }).eq('id', id);
+  galLoadAdmin(); galLoadPublic();
+}
+
+async function galDelete(id){
+  if(!confirm('Supprimer définitivement cette photo de la galerie ?')) return;
+  await sb.from('gallery').delete().eq('id', id);
+  if(typeof showToast === 'function') showToast('Supprimé de la galerie');
+  galLoadAdmin(); galLoadPublic();
+}
+
+/* Charge l'admin quand la page Galerie s'ouvre */
+(function(){
+  const pg = document.getElementById('page-gallery');
+  if(pg){
+    new MutationObserver(() => {
+      if(pg.style.display !== 'none') galLoadAdmin();
+    }).observe(pg, { attributes:true, attributeFilter:['style'] });
+  }
+})();
+
+document.addEventListener('DOMContentLoaded', () => { setTimeout(galLoadPublic, 600); });
 
 /* ============ CALENDRIER ============ */
 const EV_ICONS = { veto:'🩺', adoption:'🏠', soin:'💊', autre:'📌' };
@@ -2519,5 +2852,5 @@ new MutationObserver(() => {
 }).observe(document.getElementById('page-ai-assistant') || document.body, { attributes:true, attributeFilter:['style'] });
 document.addEventListener('DOMContentLoaded', () => { setTimeout(chatInit, 800); });
 </script>
-</body>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a3a8bcbb8f11f45b',t:'MTc4OTMxOTEzMQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
