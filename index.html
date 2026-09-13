@@ -515,9 +515,87 @@ textarea.form-input{resize:vertical; min-height:76px;}
     </div>
   </section>
 
+  <!-- ===== Dons ===== -->
+  <section style="padding:1.8rem 1.2rem;" id="publicDonateSection">
+    <h2 style="font-family:'Fraunces',serif; font-weight:600; font-size:1.3rem; color:var(--ink); margin-bottom:.4rem;" data-i18n="pub.donateTitle">💚 Faire un don</h2>
+    <p style="font-size:.85rem; color:var(--ink-soft); margin-bottom:1.1rem; max-width:560px;" data-i18n="pub.donateSub">Derrière chaque chien sauvé il y a des coûts réels : nourriture, vétérinaire, médicaments. Chaque contribution change une vie.</p>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:.8rem;">
+      <a href="https://www.paypal.com/paypalme/beldirefuge" target="_blank" rel="noopener" style="display:flex; align-items:center; gap:.8rem; background:var(--white); border:1.5px solid var(--line); border-radius:var(--radius-m); padding:1rem; text-decoration:none; color:var(--ink); transition:border-color .15s;">
+        <span style="width:44px; height:44px; border-radius:11px; background:#e8f0fe; display:grid; place-items:center; font-size:1.3rem; flex:none;">💙</span>
+        <div><div style="font-weight:700; font-size:.92rem;">PayPal</div><div style="font-size:.74rem; color:var(--ink-soft);">paypal.me/beldirefuge</div></div>
+      </a>
+      <div style="display:flex; align-items:flex-start; gap:.8rem; background:var(--white); border:1.5px solid var(--line); border-radius:var(--radius-m); padding:1rem;">
+        <span style="width:44px; height:44px; border-radius:11px; background:var(--clay-tint); display:grid; place-items:center; font-size:1.3rem; flex:none;">🏦</span>
+        <div style="min-width:0;">
+          <div style="font-weight:700; font-size:.92rem;" data-i18n="pub.bankTransfer">Virement bancaire</div>
+          <div style="font-size:.74rem; color:var(--ink-soft); line-height:1.6; margin-top:.2rem;">Beldi Dog Rescue e.V.<br/><span style="user-select:all;">DE87 5405 1550 0000 9875 86</span><br/>BIC : MALADE51KUS · Sparkasse</div>
+          <button onclick="navigator.clipboard && navigator.clipboard.writeText('DE87540515500000987586').then(()=>showToast('IBAN copié ✅'))" class="btn btn-outline btn-sm" style="margin-top:.45rem;" data-i18n="pub.copyIban">📋 Copier l'IBAN</button>
+        </div>
+      </div>
+      <a href="https://www.amazon.de/hz/wishlist/ls/7AHC3D13MP1E?ref_=wl_share" target="_blank" rel="noopener" style="display:flex; align-items:center; gap:.8rem; background:var(--white); border:1.5px solid var(--line); border-radius:var(--radius-m); padding:1rem; text-decoration:none; color:var(--ink);">
+        <span style="width:44px; height:44px; border-radius:11px; background:#fff3e0; display:grid; place-items:center; font-size:1.3rem; flex:none;">🎁</span>
+        <div><div style="font-weight:700; font-size:.92rem;">Amazon Wishlist</div><div style="font-size:.74rem; color:var(--ink-soft);" data-i18n="pub.wishlistSub">Offrez directement ce dont les chiens ont besoin</div></div>
+      </a>
+      <a href="https://www.patreon.com/beldirefuge" target="_blank" rel="noopener" style="display:flex; align-items:center; gap:.8rem; background:var(--white); border:1.5px solid var(--line); border-radius:var(--radius-m); padding:1rem; text-decoration:none; color:var(--ink);">
+        <span style="width:44px; height:44px; border-radius:11px; background:#fce4ec; display:grid; place-items:center; font-size:1.3rem; flex:none;">🔁</span>
+        <div><div style="font-weight:700; font-size:.92rem;">Patreon</div><div style="font-size:.74rem; color:var(--ink-soft);" data-i18n="pub.patreonSub">Don mensuel — devenez parrain d'un chien</div></div>
+      </a>
+      <a href="https://www.teaming.net/beldidogrescue" target="_blank" rel="noopener" style="display:flex; align-items:center; gap:.8rem; background:var(--white); border:1.5px solid var(--line); border-radius:var(--radius-m); padding:1rem; text-decoration:none; color:var(--ink);">
+        <span style="width:44px; height:44px; border-radius:11px; background:#e8f5e9; display:grid; place-items:center; font-size:1.3rem; flex:none;">☕</span>
+        <div><div style="font-weight:700; font-size:.92rem;">Teaming</div><div style="font-size:.74rem; color:var(--ink-soft);" data-i18n="pub.teamingSub">1 € par mois, ensemble ça change tout</div></div>
+      </a>
+    </div>
+    <div style="font-size:.72rem; color:var(--ink-soft); margin-top:.8rem;" data-i18n="pub.receiptNote">Reçu fiscal sur demande : <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c5a6aaabb1a4a6b185a7a0a9a1aca1aaa2b7a0b6a6b0a0eba6aaa8">[email&#160;protected]</a></div>
+  </section>
+
+  <!-- ===== Contact ===== -->
+  <section style="padding:1.8rem 1.2rem; background:var(--sable);" id="publicContactSection">
+    <h2 style="font-family:'Fraunces',serif; font-weight:600; font-size:1.3rem; color:var(--ink); margin-bottom:1rem;" data-i18n="pub.contactTitle">📬 Contact</h2>
+    <div style="display:flex; flex-wrap:wrap; gap:.7rem;">
+      <a href="/cdn-cgi/l/email-protection#3d5f585159544f585b485a587d5a505c5451135e5250" style="display:flex; align-items:center; gap:.55rem; background:var(--white); border:1.5px solid var(--line); border-radius:10px; padding:.65rem 1rem; text-decoration:none; color:var(--ink); font-size:.85rem; font-weight:600;">✉️ <span class="__cf_email__" data-cfemail="0d6f686169647f686b786a684d6a606c6461236e6260">[email&#160;protected]</span></a>
+      <a href="https://www.instagram.com/beldi.rescue" target="_blank" rel="noopener" style="display:flex; align-items:center; gap:.55rem; background:var(--white); border:1.5px solid var(--line); border-radius:10px; padding:.65rem 1rem; text-decoration:none; color:var(--ink); font-size:.85rem; font-weight:600;">📸 Instagram</a>
+      <a href="https://www.facebook.com/share/1DJhGZ5x5q/" target="_blank" rel="noopener" style="display:flex; align-items:center; gap:.55rem; background:var(--white); border:1.5px solid var(--line); border-radius:10px; padding:.65rem 1rem; text-decoration:none; color:var(--ink); font-size:.85rem; font-weight:600;">📘 Facebook</a>
+      <a href="https://linktr.ee/beldidogrescue" target="_blank" rel="noopener" style="display:flex; align-items:center; gap:.55rem; background:var(--white); border:1.5px solid var(--line); border-radius:10px; padding:.65rem 1rem; text-decoration:none; color:var(--ink); font-size:.85rem; font-weight:600;">🔗 Linktree</a>
+    </div>
+    <div style="font-size:.8rem; color:var(--ink-soft); margin-top:.9rem;">📍 Route d'Akchour, Talambote — <span data-i18n="pub.region">région de Chefchaouen, Maroc</span> 🇲🇦</div>
+  </section>
+
   <footer style="text-align:center; padding:2rem 1.2rem; color:var(--ink-soft); font-size:.78rem; border-top:1px solid var(--sable-2);">
-    Beldi Dog Rescue Morocco · Refuge basé à Chefchaouen
+    <div style="margin-bottom:.7rem;">Beldi Dog Rescue Morocco · <span data-i18n="pub.footerBase">Refuge basé à Talambote / Chefchaouen</span></div>
+    <div style="display:flex; justify-content:center; gap:1.2rem; flex-wrap:wrap;">
+      <a href="#" onclick="event.preventDefault(); openModal('impressumModal')" style="color:var(--ink-soft); text-decoration:underline;">Impressum — Legal Disclosure</a>
+      <a href="#" onclick="event.preventDefault(); openModal('privacyModal')" style="color:var(--ink-soft); text-decoration:underline;">Data protection — Privacy</a>
+    </div>
   </footer>
+</div>
+
+<!-- Modal Impressum -->
+<div class="modal-overlay" id="impressumModal">
+  <div class="modal" style="max-width:620px;">
+    <div class="modal-head"><div class="modal-title">Impressum — Legal Disclosure</div><button class="modal-close" onclick="closeModal('impressumModal')">✕</button></div>
+    <div style="font-size:.85rem; line-height:1.65; color:var(--ink);">
+      <p style="margin-bottom:.8rem;"><strong>Obligation to provide information according to § 5 TMG</strong></p>
+      <p style="margin-bottom:.8rem;">Beldi Dog Rescue Verein e.V.<br/>Hauptstrasse 22<br/>67742 Lauterecken, Germany<br/>Email : <a href="/cdn-cgi/l/email-protection#43202c2d372220370321262f272a272c243126302036266d202c2e" style="color:var(--clay-dark);"><span class="__cf_email__" data-cfemail="c1a2aeafb5a0a2b581a3a4ada5a8a5aea6b3a4b2a2b4a4efa2aeac">[email&#160;protected]</span></a></p>
+      <p style="margin-bottom:.8rem;"><strong>EU dispute settlement</strong><br/>Consumers may submit complaints to the European Commission's Online Dispute Resolution platform: <a href="https://ec.europa.eu/odr" target="_blank" rel="noopener" style="color:var(--clay-dark);">ec.europa.eu/odr</a>. We are not willing or obliged to participate in dispute resolution proceedings before a consumer arbitration board.</p>
+      <p style="margin-bottom:.8rem;"><strong>Liability for content</strong><br/>We strive to provide accurate and up-to-date information. As service providers (§ 7 (1) TMG) we are responsible for our own content, but not obliged to monitor third-party information (§§ 8–10 TMG). If you notice problematic or illegal content or links, please contact us so we can remove them.</p>
+      <p style="margin-bottom:.8rem;"><strong>Copyright</strong><br/>All content on this website (images, photos, text, videos) is subject to copyright. Please contact us before distributing, copying or reusing any content.</p>
+      <p><strong>Image credits</strong><br/>Photographers: Eyleen Kanzler, Sarah Hauptmann, Clemens Tisch, Adnana Musanovic.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Privacy -->
+<div class="modal-overlay" id="privacyModal">
+  <div class="modal" style="max-width:620px;">
+    <div class="modal-head"><div class="modal-title">Data protection — Privacy information</div><button class="modal-close" onclick="closeModal('privacyModal')">✕</button></div>
+    <div style="font-size:.85rem; line-height:1.65; color:var(--ink);">
+      <p style="margin-bottom:.8rem;"><strong>Responsible entity</strong><br/>Beldi Dog Rescue Verein e.V., Hauptstrasse 22, 67742 Lauterecken, Germany — <a href="/cdn-cgi/l/email-protection#c1a2aeafb5a0a2b581a3a4ada5a8a5aea6b3a4b2a2b4a4efa2aeac" style="color:var(--clay-dark);"><span class="__cf_email__" data-cfemail="e1828e8f95808295a183848d8588858e86938492829484cf828e8c">[email&#160;protected]</span></a></p>
+      <p style="margin-bottom:.8rem;"><strong>What data we process</strong><br/>This website does not use advertising or tracking cookies. Your language preference is stored locally on your device only. Team accounts (email, name) are stored securely with our database provider (Supabase) and used solely for shelter management.</p>
+      <p style="margin-bottom:.8rem;"><strong>Donations</strong><br/>Payments are processed by external providers (PayPal, your bank, Patreon, Teaming). We do not receive or store your payment card details. Please refer to the privacy policies of these providers.</p>
+      <p style="margin-bottom:.8rem;"><strong>Contact</strong><br/>If you write to us by email or social media, we use your data only to answer your request.</p>
+      <p><strong>Your rights (GDPR)</strong><br/>You have the right to access, rectify or delete your personal data at any time. Contact: <a href="/cdn-cgi/l/email-protection#d6b5b9b8a2b7b5a296b4b3bab2bfb2b9b1a4b3a5b5a3b3f8b5b9bb" style="color:var(--clay-dark);"><span class="__cf_email__" data-cfemail="d9bab6b7adb8baad99bbbcb5bdb0bdb6beabbcaabaacbcf7bab6b4">[email&#160;protected]</span></a></p>
+    </div>
+  </div>
 </div>
 
 <!-- Lightbox galerie -->
@@ -1208,7 +1286,7 @@ textarea.form-input{resize:vertical; min-height:76px;}
       <div style="margin-top:10px; font-size:.88rem; color:var(--ink-soft); line-height:1.6;">
         🐕 <strong>Beldi Dog Rescue Morocco</strong><br/>
         Route d'Akchour, Talambote, Maroc 🇲🇦<br/>
-        📧 <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="3e5c5b525a574c5b584b595b7e59535f5752105d5153">[email&#160;protected]</a><br/>
+        📧 <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="accec9c0c8c5dec9cad9cbc9eccbc1cdc5c082cfc3c1">[email&#160;protected]</a><br/>
         🔗 linktr.ee/beldidogrescue<br/>
         <span style="font-size:.78rem;">Version 1.1 — site géré par l'équipe Beldi</span>
       </div>
@@ -1744,6 +1822,17 @@ const translations = {
     "pub.statAdopted": "adoptés",
     "pub.ourDogs": "Nos chiens",
     "pub.galleryTitle": "📸 La vie au refuge",
+    "pub.donateTitle": "💚 Faire un don",
+    "pub.donateSub": "Derrière chaque chien sauvé il y a des coûts réels : nourriture, vétérinaire, médicaments. Chaque contribution change une vie.",
+    "pub.bankTransfer": "Virement bancaire",
+    "pub.copyIban": "📋 Copier l'IBAN",
+    "pub.wishlistSub": "Offrez directement ce dont les chiens ont besoin",
+    "pub.patreonSub": "Don mensuel — devenez parrain d'un chien",
+    "pub.teamingSub": "1 € par mois, ensemble ça change tout",
+    "pub.receiptNote": "Reçu fiscal sur demande : contact@beldidogrescue.com",
+    "pub.contactTitle": "📬 Contact",
+    "pub.region": "région de Chefchaouen, Maroc",
+    "pub.footerBase": "Refuge basé à Talambote / Chefchaouen",
     "placeholder.generic": "Contenu identique à la version précédente.",
   },
   en: {
@@ -1891,6 +1980,17 @@ const translations = {
     "pub.statAdopted": "adopted",
     "pub.ourDogs": "Our dogs",
     "pub.galleryTitle": "📸 Life at the shelter",
+    "pub.donateTitle": "💚 Donate",
+    "pub.donateSub": "Behind every rescued dog are real costs: food, vet care, medicine. Every contribution changes a life.",
+    "pub.bankTransfer": "Bank transfer",
+    "pub.copyIban": "📋 Copy IBAN",
+    "pub.wishlistSub": "Send exactly what the dogs need",
+    "pub.patreonSub": "Monthly donation — become a dog sponsor",
+    "pub.teamingSub": "€1 a month, together it changes everything",
+    "pub.receiptNote": "Donation receipt on request: contact@beldidogrescue.com",
+    "pub.contactTitle": "📬 Contact",
+    "pub.region": "Chefchaouen region, Morocco",
+    "pub.footerBase": "Shelter based in Talambote / Chefchaouen",
     "placeholder.generic": "Same content as the previous version.",
   },
   ar: {
@@ -2038,6 +2138,17 @@ const translations = {
     "pub.statAdopted": "تم تبنيه",
     "pub.ourDogs": "كلابنا",
     "pub.galleryTitle": "📸 الحياة في الملجأ",
+    "pub.donateTitle": "💚 تبرع",
+    "pub.donateSub": "وراء كل كلب تم إنقاذه تكاليف حقيقية: طعام، طبيب بيطري، أدوية. كل مساهمة تغيّر حياة.",
+    "pub.bankTransfer": "تحويل بنكي",
+    "pub.copyIban": "📋 نسخ IBAN",
+    "pub.wishlistSub": "أرسل ما تحتاجه الكلاب مباشرة",
+    "pub.patreonSub": "تبرع شهري — كن راعياً لكلب",
+    "pub.teamingSub": "1 يورو شهرياً، معاً نغيّر كل شيء",
+    "pub.receiptNote": "إيصال التبرع عند الطلب: contact@beldidogrescue.com",
+    "pub.contactTitle": "📬 اتصل بنا",
+    "pub.region": "منطقة شفشاون، المغرب",
+    "pub.footerBase": "الملجأ في تلمبوط / شفشاون",
     "placeholder.generic": "نفس محتوى النسخة السابقة.",
   },
   de: {
@@ -2190,6 +2301,17 @@ const translations = {
     "pub.statAdopted": "adoptiert",
     "pub.ourDogs": "Unsere Hunde",
     "pub.galleryTitle": "📸 Leben im Tierheim",
+    "pub.donateTitle": "💚 Spenden",
+    "pub.donateSub": "Hinter jedem geretteten Hund stehen echte Kosten: Futter, Tierarzt, Medikamente. Jeder Beitrag verändert ein Leben.",
+    "pub.bankTransfer": "Banküberweisung",
+    "pub.copyIban": "📋 IBAN kopieren",
+    "pub.wishlistSub": "Schicken Sie genau das, was die Hunde brauchen",
+    "pub.patreonSub": "Monatliche Spende — werden Sie Pate",
+    "pub.teamingSub": "1 € im Monat, gemeinsam verändert es alles",
+    "pub.receiptNote": "Spendenquittung auf Anfrage: contact@beldidogrescue.com",
+    "pub.contactTitle": "📬 Kontakt",
+    "pub.region": "Region Chefchaouen, Marokko",
+    "pub.footerBase": "Tierheim in Talambote / Chefchaouen",
     "placeholder.generic": "Inhalt wie in der vorherigen Version.",
   }
 };
@@ -3270,5 +3392,5 @@ new MutationObserver(() => {
 }).observe(document.getElementById('page-ai-assistant') || document.body, { attributes:true, attributeFilter:['style'] });
 document.addEventListener('DOMContentLoaded', () => { setTimeout(chatInit, 800); });
 </script>
-<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a3a959dd0c98343a',t:'MTc4OTMyNTU2Nw=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</body>
 </html>
