@@ -259,6 +259,25 @@ html[dir="rtl"] .grid-2b{direction:rtl;}
 .animal-filters{display:flex; gap:.5rem; flex-wrap:wrap;}
 .animal-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:1.1rem;}
 
+/* ===== Carrousel chiens (public) ===== */
+.dog-carousel{display:flex; gap:.9rem; overflow-x:auto; scroll-behavior:smooth; padding-bottom:.6rem; -webkit-overflow-scrolling:touch; scrollbar-width:thin;}
+.dog-carousel .animal-card{min-width:210px; max-width:210px; flex:none;}
+.carousel-nav{display:flex; gap:.4rem;}
+.carousel-btn{width:36px; height:36px; border-radius:10px; border:1.5px solid var(--line); background:var(--white); color:var(--ink); font-size:1rem; cursor:pointer; transition:all .15s;}
+.carousel-btn:hover{border-color:var(--clay); color:var(--clay-dark);}
+
+/* ===== Comment aider ===== */
+.help-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:.9rem;}
+.help-card{background:var(--white); border:1.5px solid var(--line); border-radius:var(--radius-m); padding:1.3rem 1.1rem; text-align:center; transition:transform .15s, border-color .15s;}
+.help-card:hover{transform:translateY(-3px); border-color:var(--clay);}
+.help-ico{width:54px; height:54px; border-radius:14px; margin:0 auto .7rem; display:grid; place-items:center; font-size:1.6rem;}
+
+/* ===== Histoires heureuses ===== */
+.story-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:.8rem;}
+.story-card{background:var(--white); border:1px solid var(--line); border-radius:var(--radius-m); overflow:hidden; text-decoration:none; color:var(--ink); transition:transform .15s;}
+.story-card:hover{transform:translateY(-3px);}
+.story-card img{width:100%; aspect-ratio:1/1; object-fit:cover; display:block;}
+
 /* ===== Galerie ===== */
 .gal-filters{display:flex; gap:.45rem; flex-wrap:wrap; margin-bottom:1rem;}
 .gal-filter{border:1.5px solid var(--line); background:var(--white); color:var(--ink-soft); border-radius:8px; padding:.45rem .85rem; font-size:.78rem; font-weight:600; cursor:pointer; font-family:inherit; transition:all .15s;}
@@ -468,7 +487,7 @@ textarea.form-input{resize:vertical; min-height:76px;}
   </div>
 
   <!-- Hero -->
-  <section style="position:relative; min-height:340px; display:flex; align-items:flex-end; background:linear-gradient(180deg, rgba(44,36,28,.05), rgba(44,36,28,.55)), var(--clay); background-size:cover; background-position:center; padding:2rem 1.2rem;">
+  <section id="pubHero" style="position:relative; min-height:340px; display:flex; align-items:flex-end; background:linear-gradient(180deg, rgba(44,36,28,.15), rgba(44,36,28,.65)), url('https://beldidogrescue.com/wp-content/uploads/2025/11/mission-1024x768.avif') center/cover no-repeat, var(--clay); padding:2rem 1.2rem;">
     <div style="color:#fff; max-width:520px;">
       <span style="background:rgba(255,255,255,.15); backdrop-filter:blur(4px); padding:.3rem .7rem; border-radius:20px; font-size:.72rem; font-weight:600; letter-spacing:.03em;">CHEFCHAOUEN, MAROC</span>
       <h1 style="font-family:'Fraunces',serif; font-weight:700; font-size:1.9rem; line-height:1.15; margin:.7rem 0 .5rem;" data-i18n="pub.heroTitle">Chaque chien mérite une seconde chance</h1>
@@ -492,11 +511,42 @@ textarea.form-input{resize:vertical; min-height:76px;}
     </div>
   </section>
 
-  <!-- Galerie des chiens -->
+  <!-- Comment aider -->
   <section style="padding:1.8rem 1.2rem;">
-    <h2 style="font-family:'Fraunces',serif; font-weight:600; font-size:1.3rem; color:var(--ink); margin-bottom:1rem;" data-i18n="pub.ourDogs">Nos chiens</h2>
-    <div class="animal-grid" id="publicAnimalGrid">
-      <div style="padding:2rem; text-align:center; color:var(--ink-soft); grid-column:1/-1;">Chargement...</div>
+    <h2 style="font-family:'Fraunces',serif; font-weight:600; font-size:1.3rem; color:var(--ink); margin-bottom:1rem;" data-i18n="pub.howToHelp">💚 Comment aider</h2>
+    <div class="help-grid">
+      <div class="help-card">
+        <div class="help-ico" style="background:var(--clay-tint);">🏠</div>
+        <div style="font-weight:700; margin-bottom:.35rem;" data-i18n="pub.helpAdopt">Adopter</div>
+        <div style="font-size:.8rem; color:var(--ink-soft); margin-bottom:.8rem;" data-i18n="pub.helpAdoptSub">Offrez une famille pour la vie à un beldi</div>
+        <button class="btn btn-primary btn-sm" onclick="document.getElementById('pubDogsSection').scrollIntoView({behavior:'smooth'})" data-i18n="pub.helpAdoptBtn">Voir les chiens</button>
+      </div>
+      <div class="help-card">
+        <div class="help-ico" style="background:#e8f5e9;">💰</div>
+        <div style="font-weight:700; margin-bottom:.35rem;" data-i18n="pub.helpDonate">Donner</div>
+        <div style="font-size:.8rem; color:var(--ink-soft); margin-bottom:.8rem;" data-i18n="pub.helpDonateSub">100 DH = 1 semaine de croquettes</div>
+        <button class="btn btn-primary btn-sm" onclick="document.getElementById('publicDonateSection').scrollIntoView({behavior:'smooth'})" data-i18n="pub.helpDonateBtn">Faire un don</button>
+      </div>
+      <div class="help-card">
+        <div class="help-ico" style="background:#fff3e0;">🙋</div>
+        <div style="font-weight:700; margin-bottom:.35rem;" data-i18n="pub.helpVolunteer">Bénévolat</div>
+        <div style="font-size:.8rem; color:var(--ink-soft); margin-bottom:.8rem;" data-i18n="pub.helpVolunteerSub">Balades, soins, transport, photos...</div>
+        <a class="btn btn-primary btn-sm" href="/cdn-cgi/l/email-protection#8cfae3e0f9e2f8e9e9fecceee9e0e8e5e8e3ebfee9ffeff9e9a2efe3e1" style="text-decoration:none;" data-i18n="pub.helpVolunteerBtn">Nous écrire</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Carrousel des chiens -->
+  <section style="padding:1.8rem 1.2rem; background:var(--sable);" id="pubDogsSection">
+    <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:1rem;">
+      <h2 style="font-family:'Fraunces',serif; font-weight:600; font-size:1.3rem; color:var(--ink);" data-i18n="pub.ourDogs">Nos chiens</h2>
+      <div class="carousel-nav">
+        <button class="carousel-btn" onclick="dogCarouselScroll(-1)">←</button>
+        <button class="carousel-btn" onclick="dogCarouselScroll(1)">→</button>
+      </div>
+    </div>
+    <div class="dog-carousel" id="publicAnimalGrid">
+      <div style="padding:2rem; text-align:center; color:var(--ink-soft); width:100%;">Chargement...</div>
     </div>
   </section>
 
@@ -512,6 +562,29 @@ textarea.form-input{resize:vertical; min-height:76px;}
     </div>
     <div class="gal-grid" id="publicGalleryGrid">
       <div style="grid-column:1/-1; padding:1.5rem; text-align:center; color:var(--ink-soft); font-size:.85rem;">Chargement de la galerie...</div>
+    </div>
+  </section>
+
+  <!-- Notre histoire -->
+  <section style="padding:1.8rem 1.2rem;">
+    <h2 style="font-family:'Fraunces',serif; font-weight:600; font-size:1.3rem; color:var(--ink); margin-bottom:.9rem;" data-i18n="pub.storyTitle">📖 Notre histoire — l'héritage de Django</h2>
+    <div style="max-width:680px; font-size:.88rem; line-height:1.7; color:var(--ink); display:flex; flex-direction:column; gap:.75rem;">
+      <p data-i18n="pub.story1">Tout a commencé en 2014, quand Leeny a découvert le Maroc. Au fil de ses voyages, elle a été bouleversée par le nombre de chiens errants survivant sans protection ni soins. En 2018, elle a commencé à aider directement — nourriture, soins, attention.</p>
+      <p data-i18n="pub.story2">L'un d'eux s'appelait Django : un vieux chien des rues de Chefchaouen, faible et blessé, mais d'une confiance désarmante envers les humains. Au printemps 2019, juste avant son transfert prévu vers un refuge, un empoisonnement de masse a frappé Chefchaouen. Django et toute sa meute ont été tués.</p>
+      <p data-i18n="pub.story3">Sa mort a tout changé. En août 2019, Leeny a fondé Beldi Dog Rescue dans les montagnes du Rif — pour construire ce qui n'existait pas : une structure de secours locale. Aujourd'hui, le refuge est une association enregistrée au Maroc et en Allemagne, qui sauve, soigne et replace les chiens oubliés du Maroc.</p>
+      <p style="font-weight:700; color:var(--clay-dark);" data-i18n="pub.story4">Le travail a commencé avec Django. Il continue pour tous ceux qui dépendent encore de ce refuge.</p>
+    </div>
+  </section>
+
+  <!-- Happy endings -->
+  <section style="padding:1.8rem 1.2rem; background:var(--sable);">
+    <h2 style="font-family:'Fraunces',serif; font-weight:600; font-size:1.3rem; color:var(--ink); margin-bottom:.4rem;" data-i18n="pub.happyTitle">⭐ Transformations incroyables</h2>
+    <p style="font-size:.85rem; color:var(--ink-soft); margin-bottom:1rem; max-width:560px;" data-i18n="pub.happySub">Chaque chien sauvé a une histoire — survie, guérison, seconde chance. Voici quelques-uns de nos survivants.</p>
+    <div class="story-grid">
+      <a class="story-card" href="https://beldidogrescue.com/dog/chef/" target="_blank" rel="noopener"><img src="https://beldidogrescue.com/wp-content/uploads/2025/09/profilbild-10-scaled-e1630683416731-2.avif" alt="Chef" loading="lazy"/><div style="padding:.6rem .7rem; font-weight:700; font-size:.88rem;">Chef</div></a>
+      <a class="story-card" href="https://beldidogrescue.com/dog/flicco/" target="_blank" rel="noopener"><img src="https://beldidogrescue.com/wp-content/uploads/2025/09/flicco-profilbild-2.avif" alt="Flicco" loading="lazy"/><div style="padding:.6rem .7rem; font-weight:700; font-size:.88rem;">Flicco</div></a>
+      <a class="story-card" href="https://beldidogrescue.com/dog/gino/" target="_blank" rel="noopener"><img src="https://beldidogrescue.com/wp-content/uploads/2025/09/dddd-e1744559991620-2-1.avif" alt="Gino" loading="lazy"/><div style="padding:.6rem .7rem; font-weight:700; font-size:.88rem;">Gino</div></a>
+      <a class="story-card" href="https://beldidogrescue.com/dog/natsu/" target="_blank" rel="noopener"><img src="https://beldidogrescue.com/wp-content/uploads/2025/09/ppp-scaled-e1652799443658-2.avif" alt="Natsu" loading="lazy"/><div style="padding:.6rem .7rem; font-weight:700; font-size:.88rem;">Natsu</div></a>
     </div>
   </section>
 
@@ -545,14 +618,14 @@ textarea.form-input{resize:vertical; min-height:76px;}
         <div><div style="font-weight:700; font-size:.92rem;">Teaming</div><div style="font-size:.74rem; color:var(--ink-soft);" data-i18n="pub.teamingSub">1 € par mois, ensemble ça change tout</div></div>
       </a>
     </div>
-    <div style="font-size:.72rem; color:var(--ink-soft); margin-top:.8rem;" data-i18n="pub.receiptNote">Reçu fiscal sur demande : <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c5a6aaabb1a4a6b185a7a0a9a1aca1aaa2b7a0b6a6b0a0eba6aaa8">[email&#160;protected]</a></div>
+    <div style="font-size:.72rem; color:var(--ink-soft); margin-top:.8rem;" data-i18n="pub.receiptNote">Reçu fiscal sur demande : <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="f1929e9f85909285b193949d9598959e96839482928494df929e9c">[email&#160;protected]</a></div>
   </section>
 
   <!-- ===== Contact ===== -->
   <section style="padding:1.8rem 1.2rem; background:var(--sable);" id="publicContactSection">
     <h2 style="font-family:'Fraunces',serif; font-weight:600; font-size:1.3rem; color:var(--ink); margin-bottom:1rem;" data-i18n="pub.contactTitle">📬 Contact</h2>
     <div style="display:flex; flex-wrap:wrap; gap:.7rem;">
-      <a href="/cdn-cgi/l/email-protection#3d5f585159544f585b485a587d5a505c5451135e5250" style="display:flex; align-items:center; gap:.55rem; background:var(--white); border:1.5px solid var(--line); border-radius:10px; padding:.65rem 1rem; text-decoration:none; color:var(--ink); font-size:.85rem; font-weight:600;">✉️ <span class="__cf_email__" data-cfemail="0d6f686169647f686b786a684d6a606c6461236e6260">[email&#160;protected]</span></a>
+      <a href="/cdn-cgi/l/email-protection#4123242d252833242734262401262c20282d6f222e2c" style="display:flex; align-items:center; gap:.55rem; background:var(--white); border:1.5px solid var(--line); border-radius:10px; padding:.65rem 1rem; text-decoration:none; color:var(--ink); font-size:.85rem; font-weight:600;">✉️ <span class="__cf_email__" data-cfemail="bddfd8d1d9d4cfd8dbc8dad8fddad0dcd4d193ded2d0">[email&#160;protected]</span></a>
       <a href="https://www.instagram.com/beldi.rescue" target="_blank" rel="noopener" style="display:flex; align-items:center; gap:.55rem; background:var(--white); border:1.5px solid var(--line); border-radius:10px; padding:.65rem 1rem; text-decoration:none; color:var(--ink); font-size:.85rem; font-weight:600;">📸 Instagram</a>
       <a href="https://www.facebook.com/share/1DJhGZ5x5q/" target="_blank" rel="noopener" style="display:flex; align-items:center; gap:.55rem; background:var(--white); border:1.5px solid var(--line); border-radius:10px; padding:.65rem 1rem; text-decoration:none; color:var(--ink); font-size:.85rem; font-weight:600;">📘 Facebook</a>
       <a href="https://linktr.ee/beldidogrescue" target="_blank" rel="noopener" style="display:flex; align-items:center; gap:.55rem; background:var(--white); border:1.5px solid var(--line); border-radius:10px; padding:.65rem 1rem; text-decoration:none; color:var(--ink); font-size:.85rem; font-weight:600;">🔗 Linktree</a>
@@ -575,7 +648,7 @@ textarea.form-input{resize:vertical; min-height:76px;}
     <div class="modal-head"><div class="modal-title">Impressum — Legal Disclosure</div><button class="modal-close" onclick="closeModal('impressumModal')">✕</button></div>
     <div style="font-size:.85rem; line-height:1.65; color:var(--ink);">
       <p style="margin-bottom:.8rem;"><strong>Obligation to provide information according to § 5 TMG</strong></p>
-      <p style="margin-bottom:.8rem;">Beldi Dog Rescue Verein e.V.<br/>Hauptstrasse 22<br/>67742 Lauterecken, Germany<br/>Email : <a href="/cdn-cgi/l/email-protection#43202c2d372220370321262f272a272c243126302036266d202c2e" style="color:var(--clay-dark);"><span class="__cf_email__" data-cfemail="c1a2aeafb5a0a2b581a3a4ada5a8a5aea6b3a4b2a2b4a4efa2aeac">[email&#160;protected]</span></a></p>
+      <p style="margin-bottom:.8rem;">Beldi Dog Rescue Verein e.V.<br/>Hauptstrasse 22<br/>67742 Lauterecken, Germany<br/>Email : <a href="/cdn-cgi/l/email-protection#85e6eaebf1e4e6f1c5e7e0e9e1ece1eae2f7e0f6e6f0e0abe6eae8" style="color:var(--clay-dark);"><span class="__cf_email__" data-cfemail="37545859435654437755525b535e5358504552445442521954585a">[email&#160;protected]</span></a></p>
       <p style="margin-bottom:.8rem;"><strong>EU dispute settlement</strong><br/>Consumers may submit complaints to the European Commission's Online Dispute Resolution platform: <a href="https://ec.europa.eu/odr" target="_blank" rel="noopener" style="color:var(--clay-dark);">ec.europa.eu/odr</a>. We are not willing or obliged to participate in dispute resolution proceedings before a consumer arbitration board.</p>
       <p style="margin-bottom:.8rem;"><strong>Liability for content</strong><br/>We strive to provide accurate and up-to-date information. As service providers (§ 7 (1) TMG) we are responsible for our own content, but not obliged to monitor third-party information (§§ 8–10 TMG). If you notice problematic or illegal content or links, please contact us so we can remove them.</p>
       <p style="margin-bottom:.8rem;"><strong>Copyright</strong><br/>All content on this website (images, photos, text, videos) is subject to copyright. Please contact us before distributing, copying or reusing any content.</p>
@@ -589,11 +662,11 @@ textarea.form-input{resize:vertical; min-height:76px;}
   <div class="modal" style="max-width:620px;">
     <div class="modal-head"><div class="modal-title">Data protection — Privacy information</div><button class="modal-close" onclick="closeModal('privacyModal')">✕</button></div>
     <div style="font-size:.85rem; line-height:1.65; color:var(--ink);">
-      <p style="margin-bottom:.8rem;"><strong>Responsible entity</strong><br/>Beldi Dog Rescue Verein e.V., Hauptstrasse 22, 67742 Lauterecken, Germany — <a href="/cdn-cgi/l/email-protection#c1a2aeafb5a0a2b581a3a4ada5a8a5aea6b3a4b2a2b4a4efa2aeac" style="color:var(--clay-dark);"><span class="__cf_email__" data-cfemail="e1828e8f95808295a183848d8588858e86938492829484cf828e8c">[email&#160;protected]</span></a></p>
+      <p style="margin-bottom:.8rem;"><strong>Responsible entity</strong><br/>Beldi Dog Rescue Verein e.V., Hauptstrasse 22, 67742 Lauterecken, Germany — <a href="/cdn-cgi/l/email-protection#0c6f6362786d6f784c6e6960686568636b7e697f6f7969226f6361" style="color:var(--clay-dark);"><span class="__cf_email__" data-cfemail="7c1f1312081d1f083c1e1910181518131b0e190f1f0919521f1311">[email&#160;protected]</span></a></p>
       <p style="margin-bottom:.8rem;"><strong>What data we process</strong><br/>This website does not use advertising or tracking cookies. Your language preference is stored locally on your device only. Team accounts (email, name) are stored securely with our database provider (Supabase) and used solely for shelter management.</p>
       <p style="margin-bottom:.8rem;"><strong>Donations</strong><br/>Payments are processed by external providers (PayPal, your bank, Patreon, Teaming). We do not receive or store your payment card details. Please refer to the privacy policies of these providers.</p>
       <p style="margin-bottom:.8rem;"><strong>Contact</strong><br/>If you write to us by email or social media, we use your data only to answer your request.</p>
-      <p><strong>Your rights (GDPR)</strong><br/>You have the right to access, rectify or delete your personal data at any time. Contact: <a href="/cdn-cgi/l/email-protection#d6b5b9b8a2b7b5a296b4b3bab2bfb2b9b1a4b3a5b5a3b3f8b5b9bb" style="color:var(--clay-dark);"><span class="__cf_email__" data-cfemail="d9bab6b7adb8baad99bbbcb5bdb0bdb6beabbcaabaacbcf7bab6b4">[email&#160;protected]</span></a></p>
+      <p><strong>Your rights (GDPR)</strong><br/>You have the right to access, rectify or delete your personal data at any time. Contact: <a href="/cdn-cgi/l/email-protection#44272b2a3025273004262128202d202b233621372731216a272b29" style="color:var(--clay-dark);"><span class="__cf_email__" data-cfemail="c6a5a9a8b2a7a5b286a4a3aaa2afa2a9a1b4a3b5a5b3a3e8a5a9ab">[email&#160;protected]</span></a></p>
     </div>
   </div>
 </div>
@@ -617,7 +690,12 @@ textarea.form-input{resize:vertical; min-height:76px;}
         <span class="badge" id="publicAnimalStatusBadge"></span>
         <div style="font-family:'Fraunces',serif; font-weight:600; font-size:1.2rem; margin-top:.3rem;" data-public-detail="nameInner">—</div>
         <p data-public-detail="bio" style="font-size:.85rem; color:var(--ink-soft); margin-top:.5rem; line-height:1.5;">—</p>
+        <a class="btn btn-primary btn-sm" href="/cdn-cgi/l/email-protection#fd9c99928d89bd9f9891999499929a8f988e9e8898d39e9290" style="text-decoration:none; margin-top:.6rem; display:inline-block;" data-i18n="pub.adoptMe">🏠 Adoptez-moi</a>
       </div>
+    </div>
+    <div style="margin-top:1.1rem; border-top:1px solid var(--line); padding-top:.9rem;">
+      <div style="font-weight:700; font-size:.85rem; margin-bottom:.6rem;" data-i18n="pub.otherDogs">🐾 Découvrez aussi</div>
+      <div id="publicAnimalOthers" style="display:flex; gap:.6rem; overflow-x:auto; padding-bottom:.3rem;"></div>
     </div>
   </div>
 </div>
@@ -1286,7 +1364,7 @@ textarea.form-input{resize:vertical; min-height:76px;}
       <div style="margin-top:10px; font-size:.88rem; color:var(--ink-soft); line-height:1.6;">
         🐕 <strong>Beldi Dog Rescue Morocco</strong><br/>
         Route d'Akchour, Talambote, Maroc 🇲🇦<br/>
-        📧 <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="accec9c0c8c5dec9cad9cbc9eccbc1cdc5c082cfc3c1">[email&#160;protected]</a><br/>
+        📧 <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="caa8afa6aea3b8afacbfadaf8aada7aba3a6e4a9a5a7">[email&#160;protected]</a><br/>
         🔗 linktr.ee/beldidogrescue<br/>
         <span style="font-size:.78rem;">Version 1.1 — site géré par l'équipe Beldi</span>
       </div>
@@ -1626,9 +1704,9 @@ async function loadPublicAnimals(){
   }
 
   const animals = data || [];
-  document.getElementById('publicStatTotal').textContent = animals.length;
-  document.getElementById('publicStatAvailable').textContent = animals.filter(a => a.status === 'available').length;
-  document.getElementById('publicStatAdopted').textContent = animals.filter(a => a.status === 'adopted').length;
+  animateCounter('publicStatTotal', animals.length);
+  animateCounter('publicStatAvailable', animals.filter(a => a.status === 'available').length);
+  animateCounter('publicStatAdopted', animals.filter(a => a.status === 'adopted').length);
 
   if(animals.length === 0){
     grid.innerHTML = `<div style="padding:2rem; text-align:center; color:var(--ink-soft); grid-column:1/-1;">Aucun chien à afficher pour l'instant.</div>`;
@@ -1651,6 +1729,25 @@ async function loadPublicAnimals(){
   `).join('');
 }
 
+/* Compteur animé : les chiffres montent à l'écran */
+function animateCounter(id, target){
+  const el = document.getElementById(id);
+  if(!el) return;
+  const dur = 1200, t0 = performance.now();
+  function tick(t){
+    const p = Math.min((t - t0) / dur, 1);
+    el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3)));
+    if(p < 1) requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+}
+
+/* Défilement du carrousel de chiens */
+function dogCarouselScroll(dir){
+  const c = document.getElementById('publicAnimalGrid');
+  if(c) c.scrollBy({ left: dir * 240, behavior:'smooth' });
+}
+
 function openPublicAnimal(id){
   const animal = (window._publicAnimalsCache || []).find(a => a.id === id);
   if(!animal) return;
@@ -1665,6 +1762,20 @@ function openPublicAnimal(id){
   photoEl.innerHTML = animal.photo_url
     ? `<img src="${escapeHtml(animal.photo_url)}" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'; this.parentElement.textContent='🐕';"/>`
     : '🐕';
+
+  /* Propose de consulter les autres chiens */
+  const others = (window._publicAnimalsCache || []).filter(a => a.id !== id).slice(0, 10);
+  const box = document.getElementById('publicAnimalOthers');
+  if(box){
+    box.innerHTML = others.map(a => `
+      <div onclick="openPublicAnimal('${a.id}')" style="flex:none; width:76px; cursor:pointer; text-align:center;">
+        <div style="width:64px; height:64px; margin:0 auto; border-radius:50%; overflow:hidden; background:var(--sable-2); display:flex; align-items:center; justify-content:center; font-size:1.5rem; border:2px solid var(--line);">
+          ${a.photo_url ? `<img src="${escapeHtml(a.photo_url)}" style="width:100%;height:100%;object-fit:cover;" onerror="this.remove()"/>` : '🐕'}
+        </div>
+        <div style="font-size:.68rem; font-weight:600; margin-top:.25rem; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">${escapeHtml(a.name)}</div>
+      </div>
+    `).join('');
+  }
 
   openModal('publicAnimalModal');
 }
@@ -1833,6 +1944,25 @@ const translations = {
     "pub.contactTitle": "📬 Contact",
     "pub.region": "région de Chefchaouen, Maroc",
     "pub.footerBase": "Refuge basé à Talambote / Chefchaouen",
+    "pub.howToHelp": "💚 Comment aider",
+    "pub.helpAdopt": "Adopter",
+    "pub.helpAdoptSub": "Offrez une famille pour la vie à un beldi",
+    "pub.helpAdoptBtn": "Voir les chiens",
+    "pub.helpDonate": "Donner",
+    "pub.helpDonateSub": "100 DH = 1 semaine de croquettes",
+    "pub.helpDonateBtn": "Faire un don",
+    "pub.helpVolunteer": "Bénévolat",
+    "pub.helpVolunteerSub": "Balades, soins, transport, photos...",
+    "pub.helpVolunteerBtn": "Nous écrire",
+    "pub.storyTitle": "📖 Notre histoire — l'héritage de Django",
+    "pub.story1": "Tout a commencé en 2014, quand Leeny a découvert le Maroc. Au fil de ses voyages, elle a été bouleversée par le nombre de chiens errants survivant sans protection ni soins. En 2018, elle a commencé à aider directement — nourriture, soins, attention.",
+    "pub.story2": "L'un d'eux s'appelait Django : un vieux chien des rues de Chefchaouen, faible et blessé, mais d'une confiance désarmante envers les humains. Au printemps 2019, juste avant son transfert prévu vers un refuge, un empoisonnement de masse a frappé Chefchaouen. Django et toute sa meute ont été tués.",
+    "pub.story3": "Sa mort a tout changé. En août 2019, Leeny a fondé Beldi Dog Rescue dans les montagnes du Rif — pour construire ce qui n'existait pas : une structure de secours locale. Aujourd'hui, le refuge est une association enregistrée au Maroc et en Allemagne, qui sauve, soigne et replace les chiens oubliés du Maroc.",
+    "pub.story4": "Le travail a commencé avec Django. Il continue pour tous ceux qui dépendent encore de ce refuge.",
+    "pub.happyTitle": "⭐ Transformations incroyables",
+    "pub.happySub": "Chaque chien sauvé a une histoire — survie, guérison, seconde chance. Voici quelques-uns de nos survivants.",
+    "pub.adoptMe": "🏠 Adoptez-moi",
+    "pub.otherDogs": "🐾 Découvrez aussi",
     "placeholder.generic": "Contenu identique à la version précédente.",
   },
   en: {
@@ -1991,6 +2121,25 @@ const translations = {
     "pub.contactTitle": "📬 Contact",
     "pub.region": "Chefchaouen region, Morocco",
     "pub.footerBase": "Shelter based in Talambote / Chefchaouen",
+    "pub.howToHelp": "💚 How to help",
+    "pub.helpAdopt": "Adopt",
+    "pub.helpAdoptSub": "Give a beldi a family for life",
+    "pub.helpAdoptBtn": "See the dogs",
+    "pub.helpDonate": "Donate",
+    "pub.helpDonateSub": "100 DH = 1 week of food",
+    "pub.helpDonateBtn": "Donate now",
+    "pub.helpVolunteer": "Volunteer",
+    "pub.helpVolunteerSub": "Walks, care, transport, photos...",
+    "pub.helpVolunteerBtn": "Write to us",
+    "pub.storyTitle": "📖 Our story — Django's legacy",
+    "pub.story1": "It all began in 2014, when Leeny first traveled to Morocco. Over the years she was struck by the number of stray dogs surviving without protection or care. In 2018 she began helping directly — food, care, attention.",
+    "pub.story2": "One of them was Django: an elderly street dog in Chefchaouen, weak and injured, yet calm and trusting toward people. In spring 2019, shortly before his planned transfer to a shelter, a mass poisoning struck Chefchaouen. Django and his entire pack were killed.",
+    "pub.story3": "His death changed everything. In August 2019, Leeny founded Beldi Dog Rescue in the Rif Mountains — to build what did not exist: a local rescue structure. Today the refuge is a registered association in both Morocco and Germany, rescuing, healing and rehoming Morocco\u2019s forgotten dogs.",
+    "pub.story4": "The work began with Django. It continues for the many dogs who still depend on this rescue.",
+    "pub.happyTitle": "⭐ Incredible transformations",
+    "pub.happySub": "Every rescued dog has a story — survival, healing, second chances. Meet some of our survivors.",
+    "pub.adoptMe": "🏠 Adopt me",
+    "pub.otherDogs": "🐾 Also discover",
     "placeholder.generic": "Same content as the previous version.",
   },
   ar: {
@@ -2149,6 +2298,25 @@ const translations = {
     "pub.contactTitle": "📬 اتصل بنا",
     "pub.region": "منطقة شفشاون، المغرب",
     "pub.footerBase": "الملجأ في تلمبوط / شفشاون",
+    "pub.howToHelp": "💚 كيف تساعد",
+    "pub.helpAdopt": "تبنَّ",
+    "pub.helpAdoptSub": "امنح كلباً بلدياً عائلة مدى الحياة",
+    "pub.helpAdoptBtn": "شاهد الكلاب",
+    "pub.helpDonate": "تبرع",
+    "pub.helpDonateSub": "100 درهم = أسبوع من الطعام",
+    "pub.helpDonateBtn": "تبرع الآن",
+    "pub.helpVolunteer": "تطوع",
+    "pub.helpVolunteerSub": "نزهات، رعاية، نقل، تصوير...",
+    "pub.helpVolunteerBtn": "راسلنا",
+    "pub.storyTitle": "📖 قصتنا — إرث دجانغو",
+    "pub.story1": "بدأ كل شيء عام 2014 عندما زارت ليني المغرب لأول مرة. على مر السنين صدمها عدد الكلاب الضالة التي تعيش بلا حماية أو رعاية. في 2018 بدأت تساعد مباشرة — طعام ورعاية واهتمام.",
+    "pub.story2": "أحدها كان دجانغو: كلب شوارع مسن في شفشاون، ضعيف وجريح، لكنه هادئ ويثق بالناس. في ربيع 2019، قبل نقله المخطط إلى ملجأ، ضرب تسميم جماعي شفشاون. قُتل دجانغو وقطيعه بأكمله.",
+    "pub.story3": "موته غيّر كل شيء. في غشت 2019 أسست ليني ملجأ بلدي في جبال الريف — لبناء ما لم يكن موجوداً: هيكل إنقاذ محلي. اليوم الملجأ جمعية مسجلة في المغرب وألمانيا، تنقذ وتعالج وتجد عائلات لكلاب المغرب المنسية.",
+    "pub.story4": "بدأ العمل مع دجانغو. ويستمر من أجل كل الكلاب التي ما زالت تعتمد على هذا الملجأ.",
+    "pub.happyTitle": "⭐ تحولات مذهلة",
+    "pub.happySub": "كل كلب تم إنقاذه له قصة — نجاة وشفاء وفرصة ثانية. تعرف على بعض الناجين.",
+    "pub.adoptMe": "🏠 تبنّني",
+    "pub.otherDogs": "🐾 اكتشف أيضاً",
     "placeholder.generic": "نفس محتوى النسخة السابقة.",
   },
   de: {
@@ -2312,6 +2480,25 @@ const translations = {
     "pub.contactTitle": "📬 Kontakt",
     "pub.region": "Region Chefchaouen, Marokko",
     "pub.footerBase": "Tierheim in Talambote / Chefchaouen",
+    "pub.howToHelp": "💚 Wie Sie helfen können",
+    "pub.helpAdopt": "Adoptieren",
+    "pub.helpAdoptSub": "Schenken Sie einem Beldi eine Familie fürs Leben",
+    "pub.helpAdoptBtn": "Hunde ansehen",
+    "pub.helpDonate": "Spenden",
+    "pub.helpDonateSub": "100 DH = 1 Woche Futter",
+    "pub.helpDonateBtn": "Jetzt spenden",
+    "pub.helpVolunteer": "Ehrenamt",
+    "pub.helpVolunteerSub": "Spaziergänge, Pflege, Transport, Fotos...",
+    "pub.helpVolunteerBtn": "Schreiben Sie uns",
+    "pub.storyTitle": "📖 Unsere Geschichte — Djangos Vermächtnis",
+    "pub.story1": "Alles begann 2014, als Leeny zum ersten Mal nach Marokko reiste. Über die Jahre erschütterte sie die Zahl der Straßenhunde, die ohne Schutz und Pflege überleben. 2018 begann sie direkt zu helfen — Futter, Pflege, Zuwendung.",
+    "pub.story2": "Einer von ihnen war Django: ein alter Straßenhund in Chefchaouen, schwach und verletzt, doch ruhig und vertrauensvoll. Im Frühjahr 2019, kurz vor seinem geplanten Transfer in ein Tierheim, traf eine Massenvergiftung Chefchaouen. Django und sein ganzes Rudel wurden getötet.",
+    "pub.story3": "Sein Tod veränderte alles. Im August 2019 gründete Leeny Beldi Dog Rescue im Rifgebirge — um aufzubauen, was es nicht gab: eine lokale Rettungsstruktur. Heute ist das Refuge ein in Marokko und Deutschland eingetragener Verein.",
+    "pub.story4": "Die Arbeit begann mit Django. Sie geht weiter für all die Hunde, die noch auf diese Rettung angewiesen sind.",
+    "pub.happyTitle": "⭐ Unglaubliche Verwandlungen",
+    "pub.happySub": "Jeder gerettete Hund hat eine Geschichte — Überleben, Heilung, zweite Chance. Lernen Sie einige unserer Überlebenden kennen.",
+    "pub.adoptMe": "🏠 Adoptiere mich",
+    "pub.otherDogs": "🐾 Entdecken Sie auch",
     "placeholder.generic": "Inhalt wie in der vorherigen Version.",
   }
 };
