@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
 <title>Beldi Dog Rescue Morocco</title>
 <!-- ===== PWA : app installable Android + iOS ===== -->
 <link rel="manifest" href="/manifest.json"/>
@@ -475,6 +475,12 @@ textarea.form-input{resize:vertical; min-height:76px;}
 }
 :focus-visible{outline:2px solid var(--clay); outline-offset:2px;}
 @media (prefers-reduced-motion: reduce){ *{animation:none !important; transition:none !important;} }
+
+/* === Anti-zoom automatique (mobile) === */
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+@media (max-width: 768px){
+  input.form-input, select.form-input, textarea.form-input { font-size: 16px !important; }
+}
 </style>
 </head>
 <body>
@@ -561,7 +567,7 @@ textarea.form-input{resize:vertical; min-height:76px;}
         <div class="help-ico" style="background:#fff3e0;">🙋</div>
         <div style="font-weight:700; margin-bottom:.35rem;" data-i18n="pub.helpVolunteer">Bénévolat</div>
         <div style="font-size:.8rem; color:var(--ink-soft); margin-bottom:.8rem;" data-i18n="pub.helpVolunteerSub">Balades, soins, transport, photos...</div>
-        <a class="btn btn-primary btn-sm" href="/cdn-cgi/l/email-protection#4c3a232039223829293e0c2e2920282528232b3e293f2f3929622f2321" style="text-decoration:none;" data-i18n="pub.helpVolunteerBtn">Nous écrire</a>
+        <a class="btn btn-primary btn-sm" href="/cdn-cgi/l/email-protection#a3d5cccfd6cdd7c6c6d1e3c1c6cfc7cac7ccc4d1c6d0c0d6c68dc0ccce" style="text-decoration:none;" data-i18n="pub.helpVolunteerBtn">Nous écrire</a>
       </div>
     </div>
   </section>
@@ -648,14 +654,14 @@ textarea.form-input{resize:vertical; min-height:76px;}
         <div><div style="font-weight:700; font-size:.92rem;">Teaming</div><div style="font-size:.74rem; color:var(--ink-soft);" data-i18n="pub.teamingSub">1 € par mois, ensemble ça change tout</div></div>
       </a>
     </div>
-    <div style="font-size:.72rem; color:var(--ink-soft); margin-top:.8rem;" data-i18n="pub.receiptNote">Reçu fiscal sur demande : <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="482b27263c292b3c082a2d242c212c272f3a2d3b2b3d2d662b2725">[email&#160;protected]</a></div>
+    <div style="font-size:.72rem; color:var(--ink-soft); margin-top:.8rem;" data-i18n="pub.receiptNote">Reçu fiscal sur demande : <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="d4b7bbbaa0b5b7a094b6b1b8b0bdb0bbb3a6b1a7b7a1b1fab7bbb9">[email&#160;protected]</a></div>
   </section>
 
   <!-- ===== Contact ===== -->
   <section style="padding:1.8rem 1.2rem; background:var(--sable);" id="publicContactSection">
     <h2 style="font-family:'Fraunces',serif; font-weight:600; font-size:1.3rem; color:var(--ink); margin-bottom:1rem;" data-i18n="pub.contactTitle">📬 Contact</h2>
     <div style="display:flex; flex-wrap:wrap; gap:.7rem;">
-      <a href="/cdn-cgi/l/email-protection#83e1e6efe7eaf1e6e5f6e4e6c3e4eee2eaefade0ecee" style="display:flex; align-items:center; gap:.55rem; background:var(--white); border:1.5px solid var(--line); border-radius:10px; padding:.65rem 1rem; text-decoration:none; color:var(--ink); font-size:.85rem; font-weight:600;">✉️ <span class="__cf_email__" data-cfemail="e785828b838e958281928082a7808a868e8bc984888a">[email&#160;protected]</span></a>
+      <a href="/cdn-cgi/l/email-protection#2143444d454853444754464461464c40484d0f424e4c" style="display:flex; align-items:center; gap:.55rem; background:var(--white); border:1.5px solid var(--line); border-radius:10px; padding:.65rem 1rem; text-decoration:none; color:var(--ink); font-size:.85rem; font-weight:600;">✉️ <span class="__cf_email__" data-cfemail="3052555c545942555645575570575d51595c1e535f5d">[email&#160;protected]</span></a>
       <a href="https://www.instagram.com/beldi.rescue" target="_blank" rel="noopener" style="display:flex; align-items:center; gap:.55rem; background:var(--white); border:1.5px solid var(--line); border-radius:10px; padding:.65rem 1rem; text-decoration:none; color:var(--ink); font-size:.85rem; font-weight:600;">📸 Instagram</a>
       <a href="https://www.facebook.com/share/1DJhGZ5x5q/" target="_blank" rel="noopener" style="display:flex; align-items:center; gap:.55rem; background:var(--white); border:1.5px solid var(--line); border-radius:10px; padding:.65rem 1rem; text-decoration:none; color:var(--ink); font-size:.85rem; font-weight:600;">📘 Facebook</a>
       <a href="https://linktr.ee/beldidogrescue" target="_blank" rel="noopener" style="display:flex; align-items:center; gap:.55rem; background:var(--white); border:1.5px solid var(--line); border-radius:10px; padding:.65rem 1rem; text-decoration:none; color:var(--ink); font-size:.85rem; font-weight:600;">🔗 Linktree</a>
@@ -678,7 +684,7 @@ textarea.form-input{resize:vertical; min-height:76px;}
     <div class="modal-head"><div class="modal-title">Impressum — Legal Disclosure</div><button class="modal-close" onclick="closeModal('impressumModal')">✕</button></div>
     <div style="font-size:.85rem; line-height:1.65; color:var(--ink);">
       <p style="margin-bottom:.8rem;"><strong>Obligation to provide information according to § 5 TMG</strong></p>
-      <p style="margin-bottom:.8rem;">Beldi Dog Rescue Verein e.V.<br/>Hauptstrasse 22<br/>67742 Lauterecken, Germany<br/>Email : <a href="/cdn-cgi/l/email-protection#197a76776d787a6d597b7c757d707d767e6b7c6a7a6c7c377a7674" style="color:var(--clay-dark);"><span class="__cf_email__" data-cfemail="4d2e2223392c2e390d2f2821292429222a3f283e2e3828632e2220">[email&#160;protected]</span></a></p>
+      <p style="margin-bottom:.8rem;">Beldi Dog Rescue Verein e.V.<br/>Hauptstrasse 22<br/>67742 Lauterecken, Germany<br/>Email : <a href="/cdn-cgi/l/email-protection#12717d7c667371665270777e767b767d756077617167773c717d7f" style="color:var(--clay-dark);"><span class="__cf_email__" data-cfemail="7a1915140e1b190e3a181f161e131e151d081f09190f1f54191517">[email&#160;protected]</span></a></p>
       <p style="margin-bottom:.8rem;"><strong>EU dispute settlement</strong><br/>Consumers may submit complaints to the European Commission's Online Dispute Resolution platform: <a href="https://ec.europa.eu/odr" target="_blank" rel="noopener" style="color:var(--clay-dark);">ec.europa.eu/odr</a>. We are not willing or obliged to participate in dispute resolution proceedings before a consumer arbitration board.</p>
       <p style="margin-bottom:.8rem;"><strong>Liability for content</strong><br/>We strive to provide accurate and up-to-date information. As service providers (§ 7 (1) TMG) we are responsible for our own content, but not obliged to monitor third-party information (§§ 8–10 TMG). If you notice problematic or illegal content or links, please contact us so we can remove them.</p>
       <p style="margin-bottom:.8rem;"><strong>Copyright</strong><br/>All content on this website (images, photos, text, videos) is subject to copyright. Please contact us before distributing, copying or reusing any content.</p>
@@ -692,11 +698,11 @@ textarea.form-input{resize:vertical; min-height:76px;}
   <div class="modal" style="max-width:620px;">
     <div class="modal-head"><div class="modal-title">Data protection — Privacy information</div><button class="modal-close" onclick="closeModal('privacyModal')">✕</button></div>
     <div style="font-size:.85rem; line-height:1.65; color:var(--ink);">
-      <p style="margin-bottom:.8rem;"><strong>Responsible entity</strong><br/>Beldi Dog Rescue Verein e.V., Hauptstrasse 22, 67742 Lauterecken, Germany — <a href="/cdn-cgi/l/email-protection#93f0fcfde7f2f0e7d3f1f6fff7faf7fcf4e1f6e0f0e6f6bdf0fcfe" style="color:var(--clay-dark);"><span class="__cf_email__" data-cfemail="a6c5c9c8d2c7c5d2e6c4c3cac2cfc2c9c1d4c3d5c5d3c388c5c9cb">[email&#160;protected]</span></a></p>
+      <p style="margin-bottom:.8rem;"><strong>Responsible entity</strong><br/>Beldi Dog Rescue Verein e.V., Hauptstrasse 22, 67742 Lauterecken, Germany — <a href="/cdn-cgi/l/email-protection#83e0ecedf7e2e0f7c3e1e6efe7eae7ece4f1e6f0e0f6e6ade0ecee" style="color:var(--clay-dark);"><span class="__cf_email__" data-cfemail="1d7e7273697c7e695d7f7871797479727a6f786e7e6878337e7270">[email&#160;protected]</span></a></p>
       <p style="margin-bottom:.8rem;"><strong>What data we process</strong><br/>This website does not use advertising or tracking cookies. Your language preference is stored locally on your device only. Team accounts (email, name) are stored securely with our database provider (Supabase) and used solely for shelter management.</p>
       <p style="margin-bottom:.8rem;"><strong>Donations</strong><br/>Payments are processed by external providers (PayPal, your bank, Patreon, Teaming). We do not receive or store your payment card details. Please refer to the privacy policies of these providers.</p>
       <p style="margin-bottom:.8rem;"><strong>Contact</strong><br/>If you write to us by email or social media, we use your data only to answer your request.</p>
-      <p><strong>Your rights (GDPR)</strong><br/>You have the right to access, rectify or delete your personal data at any time. Contact: <a href="/cdn-cgi/l/email-protection#9ffcf0f1ebfefcebdffdfaf3fbf6fbf0f8edfaecfceafab1fcf0f2" style="color:var(--clay-dark);"><span class="__cf_email__" data-cfemail="583b37362c393b2c183a3d343c313c373f2a3d2b3b2d3d763b3735">[email&#160;protected]</span></a></p>
+      <p><strong>Your rights (GDPR)</strong><br/>You have the right to access, rectify or delete your personal data at any time. Contact: <a href="/cdn-cgi/l/email-protection#f4979b9a80959780b4969198909d909b93869187978191da979b99" style="color:var(--clay-dark);"><span class="__cf_email__" data-cfemail="2e4d41405a4f4d5a6e4c4b424a474a41495c4b5d4d5b4b004d4143">[email&#160;protected]</span></a></p>
     </div>
   </div>
 </div>
@@ -720,7 +726,7 @@ textarea.form-input{resize:vertical; min-height:76px;}
         <span class="badge" id="publicAnimalStatusBadge"></span>
         <div style="font-family:'Fraunces',serif; font-weight:600; font-size:1.2rem; margin-top:.3rem;" data-public-detail="nameInner">—</div>
         <p data-public-detail="bio" style="font-size:.85rem; color:var(--ink-soft); margin-top:.5rem; line-height:1.5;">—</p>
-        <a class="btn btn-primary btn-sm" href="/cdn-cgi/l/email-protection#0160656e71754163646d6568656e667364726274642f626e6c" style="text-decoration:none; margin-top:.6rem; display:inline-block;" data-i18n="pub.adoptMe">🏠 Adoptez-moi</a>
+        <a class="btn btn-primary btn-sm" href="/cdn-cgi/l/email-protection#08696c67787c486a6d646c616c676f7a6d7b6b7d6d266b6765" style="text-decoration:none; margin-top:.6rem; display:inline-block;" data-i18n="pub.adoptMe">🏠 Adoptez-moi</a>
       </div>
     </div>
     <div style="margin-top:1.1rem; border-top:1px solid var(--line); padding-top:.9rem;">
@@ -758,7 +764,7 @@ textarea.form-input{resize:vertical; min-height:76px;}
     <button class="vol-tab" data-voltab="tasks" onclick="volShowTab('tasks')">✅ Tâches</button>
     <button class="vol-tab" data-voltab="rules" onclick="volShowTab('rules')">📜 Règlements</button>
     <button class="vol-tab" data-voltab="chat" onclick="volShowTab('chat')">💬 Messages</button>
-    <button class="vol-tab" data-voltab="shift" onclick="volShowTab('shift')">📅 Planning</button>
+
   </nav>
   <main style="padding:1.1rem; max-width:760px; margin:0 auto;">
     <!-- Onglet photos -->
@@ -898,6 +904,7 @@ textarea.form-input{resize:vertical; min-height:76px;}
   <div class="topbar">
     <div class="topbar-left">
       <button class="mobile-toggle" id="mobileToggle">☰</button>
+      <button id="backBtn" onclick="goBackPage()" title="Retour" style="display:none; align-items:center; justify-content:center; width:34px; height:34px; border:1.5px solid var(--line); border-radius:10px; background:var(--white); cursor:pointer; font-size:1.05rem; flex:none;">←</button>
       <div>
         <h2 class="page-title" id="pageTitle" data-i18n="nav.dashboard">Tableau de bord</h2>
         <div class="page-kicker" id="pageKicker" data-i18n="topbar.kicker">Vue d'ensemble du refuge — aujourd'hui</div>
@@ -1582,7 +1589,7 @@ textarea.form-input{resize:vertical; min-height:76px;}
       <div style="margin-top:10px; font-size:.88rem; color:var(--ink-soft); line-height:1.6;">
         🐕 <strong>Beldi Dog Rescue Morocco</strong><br/>
         Route d'Akchour, Talambote, Maroc 🇲🇦<br/>
-        📧 <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="2644434a424f54434053414366414b474f4a0845494b">[email&#160;protected]</a><br/>
+        📧 <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="4b292e272f22392e2d3e2c2e0b2c262a222765282426">[email&#160;protected]</a><br/>
         🔗 linktr.ee/beldidogrescue<br/>
         <span style="font-size:.78rem;">Version 1.1 — site géré par l'équipe Beldi</span>
       </div>
@@ -2870,20 +2877,56 @@ function enterApp(page){
   }
 }
 
+function showAppPage(page, pushHistory){
+  const item = document.querySelector(`.nav-item[data-page="${page}"]`);
+  if(!item) return;
+  document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
+  item.classList.add('active');
+  document.querySelectorAll('[id^="page-"]').forEach(p=>p.style.display='none');
+  const target=document.getElementById(`page-${page}`);
+  if(target) target.style.display='block';
+  const labelEl = item.querySelector('[data-i18n]');
+  document.getElementById('pageTitle').textContent = labelEl ? labelEl.textContent : item.textContent.trim();
+  /* Bouton retour visible partout sauf sur le tableau de bord */
+  const bb = document.getElementById('backBtn');
+  if(bb) bb.style.display = (page === 'dashboard') ? 'none' : 'inline-flex';
+  /* Chaque page = une entrée dans l'historique navigateur -> le bouton
+     retour Android revient à la page précédente au lieu de quitter le site */
+  if(pushHistory !== false){
+    try{ history.pushState({ beldiPage: page }, '', '#' + page); }catch(e){}
+  }
+  if(typeof loadPageData === 'function') loadPageData(page);
+  closeSidebar();
+}
+
 document.querySelectorAll('.nav-item').forEach(item=>{
   item.addEventListener('click', function(e){
     e.preventDefault();
-    const page=this.dataset.page;
-    document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
-    this.classList.add('active');
-    document.querySelectorAll('[id^="page-"]').forEach(p=>p.style.display='none');
-    const target=document.getElementById(`page-${page}`);
-    if(target) target.style.display='block';
-    const labelEl = this.querySelector('[data-i18n]');
-    document.getElementById('pageTitle').textContent = labelEl ? labelEl.textContent : this.textContent.trim();
-    closeSidebar();
+    showAppPage(this.dataset.page);
   });
 });
+
+/* Bouton retour Android / navigateur : navigation interne pas à pas */
+window.addEventListener('popstate', function(ev){
+  const st = ev.state;
+  if(st && st.beldiPage){
+    showAppPage(st.beldiPage, false);
+  }else{
+    /* pas d'état : retour au tableau de bord si on est dans l'app */
+    const dash = document.getElementById('page-dashboard');
+    if(dash && document.getElementById('mainContent') && getComputedStyle(document.getElementById('mainContent')).display !== 'none'){
+      showAppPage('dashboard', false);
+    }
+  }
+});
+
+function goBackPage(){
+  if(history.state && history.state.beldiPage && history.state.beldiPage !== 'dashboard'){
+    history.back();
+  }else{
+    showAppPage('dashboard');
+  }
+}
 
 function closeSidebar(){
   document.getElementById('sidebar').classList.remove('open');
@@ -4184,21 +4227,18 @@ async function loadTeamPage(){
 }
 
 /* ---------- Chargement automatique à l'ouverture des pages ---------- */
-document.querySelectorAll('.nav-item').forEach(item => {
-  item.addEventListener('click', function(){
-    const p = this.dataset.page;
-    if(p === 'inventory') loadInventory();
-    else if(p === 'health') loadHealthPage();
-    else if(p === 'adoptions') loadAdoptionsPage();
-    else if(p === 'operations') loadOperationsPage();
-    else if(p === 'team') loadTeamPage();
-  });
-});
+function loadPageData(p){
+  if(p === 'inventory') loadInventory();
+  else if(p === 'health') loadHealthPage();
+  else if(p === 'adoptions') loadAdoptionsPage();
+  else if(p === 'operations') loadOperationsPage();
+  else if(p === 'team') loadTeamPage();
+}
 
 /* ============ ESPACE BÉNÉVOLE ============ */
 function volShowTab(tab){
   document.querySelectorAll('.vol-tab').forEach(b => b.classList.toggle('active', b.dataset.voltab === tab));
-  ['photos','tasks','rules','chat','shift'].forEach(t => {
+  ['photos','tasks','rules','chat'].forEach(t => {
     const el = document.getElementById('voltab-' + t);
     if(el) el.style.display = (t === tab) ? '' : 'none';
   });
@@ -4210,7 +4250,6 @@ async function volLoadAll(){
   volLoadTasks();
   volLoadRules();
   volLoadMessages();
-  volLoadShift();
 }
 
 /* --- Photos : 6 max / jour / bénévole, statut pending --- */
@@ -4371,9 +4410,9 @@ async function volSendMessage(){
 
 /* --- Planning (lecture seule) --- */
 const SHIFT_ROWS = [
-  { key:'morning', label:'🌅 Matin (6h–14h30)' },
-  { key:'evening', label:'🌆 Soir (14h30–00h)' },
-  { key:'night',   label:'🌙 Nuit (00h–6h)' },
+  { key:'morning', label:'🌅 Matin (08h00–15h00)' },
+  { key:'evening', label:'🌆 Soir (15h00–23h00)' },
+  { key:'night',   label:'🌙 Nuit (23h00–07h00)' },
   { key:'vettrip', label:'🚐 Vet trip / Aéroport' },
   { key:'dayoff',  label:'🏖️ Repos' }
 ];
@@ -4983,5 +5022,5 @@ function pwaDismiss(){
   <button onclick="pwaDismiss()" style="border:none; background:none; color:var(--ink-soft); font-size:1rem; cursor:pointer;">✕</button>
 </div>
 
-<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a3ab3312fa0a284d',t:'MTc4OTM0NDk1MA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</body>
 </html>
