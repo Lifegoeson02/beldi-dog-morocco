@@ -70,7 +70,7 @@ h1,h2,h3,.display{ font-family:'Fraunces',Georgia,serif; }
 /* ===== layout ===== */
 .app{display:flex; min-height:100vh;}
 .sidebar{
-  width:250px; flex-shrink:0; height:100vh; position:fixed; top:0; left:0;
+  width:250px; flex-shrink:0; height:100vh; height:100dvh; position:fixed; top:0; left:0;
   background:var(--white); border-right:1px solid var(--line);
   display:flex; flex-direction:column; z-index:50; transition:transform .25s, background .25s;
 }
@@ -99,7 +99,7 @@ nav.primary-nav{padding:.85rem .65rem; overflow-y:auto; flex:1;}
 .dark .nav-item.active{color:#e8a67f;}
 .nav-item.active svg{opacity:1;}
 
-.sidebar-foot{padding:.9rem 1.1rem; border-top:1px solid var(--line); display:flex; align-items:center; gap:.65rem;}
+.sidebar-foot{padding:.9rem 1.1rem calc(.9rem + env(safe-area-inset-bottom, 0px)); border-top:1px solid var(--line); display:flex; align-items:center; gap:.65rem;}
 .avatar-round{width:34px;height:34px;border-radius:50%;background:var(--zellige);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:.85rem;flex-shrink:0;}
 .foot-name{font-size:.82rem;font-weight:600;color:var(--ink);}
 .foot-role{font-size:.72rem;color:var(--ink-soft);}
@@ -567,7 +567,7 @@ html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
         <div class="help-ico" style="background:#fff3e0;">🙋</div>
         <div style="font-weight:700; margin-bottom:.35rem;" data-i18n="pub.helpVolunteer">Bénévolat</div>
         <div style="font-size:.8rem; color:var(--ink-soft); margin-bottom:.8rem;" data-i18n="pub.helpVolunteerSub">Balades, soins, transport, photos...</div>
-        <a class="btn btn-primary btn-sm" href="/cdn-cgi/l/email-protection#bccad3d0c9d2c8d9d9cefcded9d0d8d5d8d3dbced9cfdfc9d992dfd3d1" style="text-decoration:none;" data-i18n="pub.helpVolunteerBtn">Nous écrire</a>
+        <a class="btn btn-primary btn-sm" href="/cdn-cgi/l/email-protection#1d6b727168736978786f5d7f7871797479727a6f786e7e6878337e7270" style="text-decoration:none;" data-i18n="pub.helpVolunteerBtn">Nous écrire</a>
       </div>
     </div>
   </section>
@@ -715,7 +715,7 @@ html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
         <span style="font-size:.7rem; background:var(--white); border:1px solid var(--line); border-radius:20px; padding:.3rem .7rem; color:var(--ink-soft); font-weight:600;" data-i18n="don.badgeReceipt">🧾 Reçu sur demande</span>
         <span style="font-size:.7rem; background:var(--white); border:1px solid var(--line); border-radius:20px; padding:.3rem .7rem; color:var(--ink-soft); font-weight:600;" data-i18n="don.badge100">💯 100 % pour les chiens</span>
       </div>
-      <div style="font-size:.72rem; color:var(--ink-soft); margin-top:.6rem; text-align:center;" data-i18n="pub.receiptNote">Reçu fiscal sur demande : <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="31525e5f455052457153545d5558555e564354425244541f525e5c">[email&#160;protected]</a></div>
+      <div style="font-size:.72rem; color:var(--ink-soft); margin-top:.6rem; text-align:center;" data-i18n="pub.receiptNote">Reçu fiscal sur demande : <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="7c1f1312081d1f083c1e1910181518131b0e190f1f0919521f1311">[email&#160;protected]</a></div>
     </div>
   </section>
 
@@ -804,9 +804,9 @@ html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
   <section style="padding:1.8rem 1.2rem; background:var(--sable);" id="publicContactSection">
     <h2 style="font-family:'Fraunces',serif; font-weight:600; font-size:1.3rem; color:var(--ink); margin-bottom:1rem;" data-i18n="pub.contactTitle">📬 Contact</h2>
     <div style="display:flex; flex-wrap:wrap; gap:.7rem;">
-      <a href="/cdn-cgi/l/email-protection#a4c6c1c8c0cdd6c1c2d1c3c1e4c3c9c5cdc88ac7cbc9" style="display:flex; align-items:center; gap:.55rem; background:var(--white); border:1.5px solid var(--line); border-radius:10px; padding:.65rem 1rem; text-decoration:none; color:var(--ink); font-size:.85rem; font-weight:600;">
+      <a href="/cdn-cgi/l/email-protection#0f6d6a636b667d6a697a686a4f68626e6663216c6062" style="display:flex; align-items:center; gap:.55rem; background:var(--white); border:1.5px solid var(--line); border-radius:10px; padding:.65rem 1rem; text-decoration:none; color:var(--ink); font-size:.85rem; font-weight:600;">
         <svg width="20" height="20" viewBox="0 0 24 24"><path fill="#EA4335" d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 010 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/></svg>
-        <span class="__cf_email__" data-cfemail="accec9c0c8c5dec9cad9cbc9eccbc1cdc5c082cfc3c1">[email&#160;protected]</span>
+        <span class="__cf_email__" data-cfemail="88eaede4ece1faedeefdefedc8efe5e9e1e4a6ebe7e5">[email&#160;protected]</span>
       </a>
       <a href="https://www.instagram.com/beldi.rescue" target="_blank" rel="noopener" style="display:flex; align-items:center; gap:.55rem; background:var(--white); border:1.5px solid var(--line); border-radius:10px; padding:.65rem 1rem; text-decoration:none; color:var(--ink); font-size:.85rem; font-weight:600;">
         <svg width="20" height="20" viewBox="0 0 24 24"><defs><radialGradient id="igGrad" cx="30%" cy="107%" r="150%"><stop offset="0%" stop-color="#fdf497"/><stop offset="5%" stop-color="#fdf497"/><stop offset="45%" stop-color="#fd5949"/><stop offset="60%" stop-color="#d6249f"/><stop offset="90%" stop-color="#285AEB"/></radialGradient></defs><path fill="url(#igGrad)" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
@@ -843,7 +843,7 @@ html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
     <div class="modal-head"><div class="modal-title">Impressum — Legal Disclosure</div><button class="modal-close" onclick="closeModal('impressumModal')">✕</button></div>
     <div style="font-size:.85rem; line-height:1.65; color:var(--ink);">
       <p style="margin-bottom:.8rem;"><strong>Obligation to provide information according to § 5 TMG</strong></p>
-      <p style="margin-bottom:.8rem;">Beldi Dog Rescue Verein e.V.<br/>Hauptstrasse 22<br/>67742 Lauterecken, Germany<br/>Email : <a href="/cdn-cgi/l/email-protection#d6b5b9b8a2b7b5a296b4b3bab2bfb2b9b1a4b3a5b5a3b3f8b5b9bb" style="color:var(--clay-dark);"><span class="__cf_email__" data-cfemail="6f0c00011b0e0c1b2f0d0a030b060b00081d0a1c0c1a0a410c0002">[email&#160;protected]</span></a></p>
+      <p style="margin-bottom:.8rem;">Beldi Dog Rescue Verein e.V.<br/>Hauptstrasse 22<br/>67742 Lauterecken, Germany<br/>Email : <a href="/cdn-cgi/l/email-protection#2a4945445e4b495e6a484f464e434e454d584f59495f4f04494547" style="color:var(--clay-dark);"><span class="__cf_email__" data-cfemail="a7c4c8c9d3c6c4d3e7c5c2cbc3cec3c8c0d5c2d4c4d2c289c4c8ca">[email&#160;protected]</span></a></p>
       <p style="margin-bottom:.8rem;"><strong>EU dispute settlement</strong><br/>Consumers may submit complaints to the European Commission's Online Dispute Resolution platform: <a href="https://ec.europa.eu/odr" target="_blank" rel="noopener" style="color:var(--clay-dark);">ec.europa.eu/odr</a>. We are not willing or obliged to participate in dispute resolution proceedings before a consumer arbitration board.</p>
       <p style="margin-bottom:.8rem;"><strong>Liability for content</strong><br/>We strive to provide accurate and up-to-date information. As service providers (§ 7 (1) TMG) we are responsible for our own content, but not obliged to monitor third-party information (§§ 8–10 TMG). If you notice problematic or illegal content or links, please contact us so we can remove them.</p>
       <p style="margin-bottom:.8rem;"><strong>Copyright</strong><br/>All content on this website (images, photos, text, videos) is subject to copyright. Please contact us before distributing, copying or reusing any content.</p>
@@ -857,11 +857,11 @@ html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
   <div class="modal" style="max-width:620px;">
     <div class="modal-head"><div class="modal-title">Data protection — Privacy information</div><button class="modal-close" onclick="closeModal('privacyModal')">✕</button></div>
     <div style="font-size:.85rem; line-height:1.65; color:var(--ink);">
-      <p style="margin-bottom:.8rem;"><strong>Responsible entity</strong><br/>Beldi Dog Rescue Verein e.V., Hauptstrasse 22, 67742 Lauterecken, Germany — <a href="/cdn-cgi/l/email-protection#10737f7e647173645072757c7479747f776275637365753e737f7d" style="color:var(--clay-dark);"><span class="__cf_email__" data-cfemail="593a36372d383a2d193b3c353d303d363e2b3c2a3a2c3c773a3634">[email&#160;protected]</span></a></p>
+      <p style="margin-bottom:.8rem;"><strong>Responsible entity</strong><br/>Beldi Dog Rescue Verein e.V., Hauptstrasse 22, 67742 Lauterecken, Germany — <a href="/cdn-cgi/l/email-protection#492a26273d282a3d092b2c252d202d262e3b2c3a2a3c2c672a2624" style="color:var(--clay-dark);"><span class="__cf_email__" data-cfemail="dfbcb0b1abbebcab9fbdbab3bbb6bbb0b8adbaacbcaabaf1bcb0b2">[email&#160;protected]</span></a></p>
       <p style="margin-bottom:.8rem;"><strong>What data we process</strong><br/>This website does not use advertising or tracking cookies. Your language preference is stored locally on your device only. Team accounts (email, name) are stored securely with our database provider (Supabase) and used solely for shelter management.</p>
       <p style="margin-bottom:.8rem;"><strong>Donations</strong><br/>Payments are processed by external providers (PayPal, your bank, Patreon, Teaming). We do not receive or store your payment card details. Please refer to the privacy policies of these providers.</p>
       <p style="margin-bottom:.8rem;"><strong>Contact</strong><br/>If you write to us by email or social media, we use your data only to answer your request.</p>
-      <p><strong>Your rights (GDPR)</strong><br/>You have the right to access, rectify or delete your personal data at any time. Contact: <a href="/cdn-cgi/l/email-protection#7a1915140e1b190e3a181f161e131e151d081f09190f1f54191517" style="color:var(--clay-dark);"><span class="__cf_email__" data-cfemail="81e2eeeff5e0e2f5c1e3e4ede5e8e5eee6f3e4f2e2f4e4afe2eeec">[email&#160;protected]</span></a></p>
+      <p><strong>Your rights (GDPR)</strong><br/>You have the right to access, rectify or delete your personal data at any time. Contact: <a href="/cdn-cgi/l/email-protection#85e6eaebf1e4e6f1c5e7e0e9e1ece1eae2f7e0f6e6f0e0abe6eae8" style="color:var(--clay-dark);"><span class="__cf_email__" data-cfemail="a7c4c8c9d3c6c4d3e7c5c2cbc3cec3c8c0d5c2d4c4d2c289c4c8ca">[email&#160;protected]</span></a></p>
     </div>
   </div>
 </div>
@@ -885,7 +885,7 @@ html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
         <span class="badge" id="publicAnimalStatusBadge"></span>
         <div style="font-family:'Fraunces',serif; font-weight:600; font-size:1.2rem; margin-top:.3rem;" data-public-detail="nameInner">—</div>
         <p data-public-detail="bio" style="font-size:.85rem; color:var(--ink-soft); margin-top:.5rem; line-height:1.5;">—</p>
-        <a class="btn btn-primary btn-sm" href="/cdn-cgi/l/email-protection#3e5f5a514e4a7e5c5b525a575a51594c5b4d5d4b5b105d5153" style="text-decoration:none; margin-top:.6rem; display:inline-block;" data-i18n="pub.adoptMe">🏠 Adoptez-moi</a>
+        <a class="btn btn-primary btn-sm" href="/cdn-cgi/l/email-protection#ceafaaa1beba8eacaba2aaa7aaa1a9bcabbdadbbabe0ada1a3" style="text-decoration:none; margin-top:.6rem; display:inline-block;" data-i18n="pub.adoptMe">🏠 Adoptez-moi</a>
       </div>
     </div>
     <div style="margin-top:1.1rem; border-top:1px solid var(--line); padding-top:.9rem;">
@@ -902,7 +902,7 @@ html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
     <div style="font-size:2.6rem; margin-bottom:.6rem;">⏳</div>
     <div style="font-family:'Fraunces',serif; font-weight:600; font-size:1.15rem; margin-bottom:.5rem;" data-i18n="vol.pendingTitle">Compte en attente de validation</div>
     <p style="font-size:.85rem; color:var(--ink-soft); line-height:1.6;" data-i18n="vol.pendingBody">Votre inscription comme bénévole a bien été reçue. 🐾<br/>L'administrateur du refuge doit valider votre compte avant que vous puissiez accéder à l'espace bénévole. Revenez un peu plus tard !</p>
-    <button class="btn btn-outline" style="margin-top:1rem;" onclick="handleLogout(); document.getElementById('pendingScreen').style.display='none';" data-i18n="vol.backToSite">← Retour au site</button>
+    <button class="btn btn-outline" style="margin-top:1rem;" onclick="volBackToPublic()" data-i18n="vol.backToSite">← Retour au site</button>
   </div>
 </div>
 
@@ -1846,7 +1846,7 @@ html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
       <div style="margin-top:10px; font-size:.88rem; color:var(--ink-soft); line-height:1.6;">
         🐕 <strong>Beldi Dog Rescue Morocco</strong><br/>
         Route d'Akchour, Talambote, Maroc 🇲🇦<br/>
-        📧 <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="b8daddd4dcd1cadddecddfddf8dfd5d9d1d496dbd7d5">[email&#160;protected]</a><br/>
+        📧 <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="86e4e3eae2eff4e3e0f3e1e3c6e1ebe7efeaa8e5e9eb">[email&#160;protected]</a><br/>
         🔗 linktr.ee/beldidogrescue<br/>
         <span style="font-size:.78rem;" data-i18n="adm.version">Version 1.1 — site géré par l'équipe Beldi</span>
       </div>
@@ -2273,6 +2273,16 @@ function hideTeamLogin(){
   document.getElementById('publicSite').style.display = '';
 }
 
+async function volBackToPublic(){
+  /* Retour au site public depuis l'écran d'attente bénévole */
+  try{ await sb.auth.signOut(); }catch(e){}
+  currentUser = null; currentProfile = null;
+  ['pendingScreen','loginScreen','volApp','mainApp'].forEach(id => {
+    const el = document.getElementById(id); if(el) el.style.display = 'none';
+  });
+  document.getElementById('publicSite').style.display = '';
+}
+
 async function loadSessionAndStart(){
   const { data: { session } } = await sb.auth.getSession();
   if(!session){
@@ -2289,6 +2299,14 @@ async function loadSessionAndStart(){
     await new Promise(r => setTimeout(r, 800));
     const retry = await sb.from('profiles').select('*').eq('id', currentUser.id).single();
     profile = retry.data;
+  }
+  if(!profile){
+    /* Compte supprimé par l'admin : on déconnecte proprement */
+    try{ await sb.auth.signOut(); }catch(e){}
+    currentUser = null;
+    showToast(i18nText('js.accountRemoved','Ce compte a été supprimé par l\'administrateur.'), 'danger');
+    document.getElementById('publicSite').style.display = '';
+    return;
   }
   currentProfile = profile;
 
@@ -2932,6 +2950,12 @@ const translations = {
     "js.roleVolunteer": "Bénévole",
     "js.errorWord": "Erreur",
     "js.draftRestored": "📝 Brouillon de rapport restauré",
+    "js.roleChanged": "Rôle mis à jour ✅",
+    "js.accountDeleted": "Compte supprimé 🗑️",
+    "js.confirmDelAccount": "Supprimer définitivement ce compte ? Cette action est irréversible.",
+    "js.accountRemoved": "Ce compte a été supprimé par l'administrateur.",
+    "js.volApproved": "Bénévole validé ✅",
+    "js.volDisabled": "Compte désactivé",
     "pub.contactTitle": "📬 Contact",
     "pub.region": "région de Chefchaouen, Maroc",
     "pub.footerBase": "Refuge basé à Talambote / Chefchaouen",
@@ -3444,6 +3468,12 @@ const translations = {
     "js.roleVolunteer": "Volunteer",
     "js.errorWord": "Error",
     "js.draftRestored": "📝 Report draft restored",
+    "js.roleChanged": "Role updated ✅",
+    "js.accountDeleted": "Account deleted 🗑️",
+    "js.confirmDelAccount": "Permanently delete this account? This cannot be undone.",
+    "js.accountRemoved": "This account has been removed by the administrator.",
+    "js.volApproved": "Volunteer approved ✅",
+    "js.volDisabled": "Account deactivated",
     "pub.contactTitle": "📬 Contact",
     "pub.region": "Chefchaouen region, Morocco",
     "pub.footerBase": "Shelter based in Talambote / Chefchaouen",
@@ -3956,6 +3986,12 @@ const translations = {
     "js.roleVolunteer": "متطوع",
     "js.errorWord": "خطأ",
     "js.draftRestored": "📝 تمت استعادة مسودة التقرير",
+    "js.roleChanged": "تم تحديث الدور ✅",
+    "js.accountDeleted": "تم حذف الحساب 🗑️",
+    "js.confirmDelAccount": "حذف هذا الحساب نهائيًا؟ لا يمكن التراجع عن هذا الإجراء.",
+    "js.accountRemoved": "تم حذف هذا الحساب من طرف المسؤول.",
+    "js.volApproved": "تمت الموافقة على المتطوع ✅",
+    "js.volDisabled": "تم تعطيل الحساب",
     "pub.contactTitle": "📬 اتصل بنا",
     "pub.region": "منطقة شفشاون، المغرب",
     "pub.footerBase": "الملجأ في تلمبوط / شفشاون",
@@ -4468,6 +4504,12 @@ const translations = {
     "js.roleVolunteer": "Freiwillige(r)",
     "js.errorWord": "Fehler",
     "js.draftRestored": "📝 Berichtsentwurf wiederhergestellt",
+    "js.roleChanged": "Rolle aktualisiert ✅",
+    "js.accountDeleted": "Konto gelöscht 🗑️",
+    "js.confirmDelAccount": "Dieses Konto endgültig löschen? Dies kann nicht rückgängig gemacht werden.",
+    "js.accountRemoved": "Dieses Konto wurde vom Administrator entfernt.",
+    "js.volApproved": "Freiwillige(r) bestätigt ✅",
+    "js.volDisabled": "Konto deaktiviert",
     "pub.contactTitle": "📬 Kontakt",
     "pub.region": "Region Chefchaouen, Marokko",
     "pub.footerBase": "Tierheim in Talambote / Chefchaouen",
@@ -6022,7 +6064,8 @@ async function loadTeamPage(){
   try{
     const { data, error } = await sb.from('profiles').select('*').order('created_at');
     if(error) throw error;
-    const members = (data || []).filter(p => p.role === 'admin' || p.role === 'worker' || (p.role === 'volunteer' && p.approved));
+    const isAdmin = currentProfile && currentProfile.role === 'admin';
+    const members = isAdmin ? (data || []) : (data || []).filter(p => p.role === 'admin' || p.role === 'worker' || (p.role === 'volunteer' && p.approved));
     const badge = document.getElementById('teamCountBadge');
     if(badge) badge.textContent = members.length + ' ' + i18nText('js.activeMembers','membre(s) actif(s)');
     if(!members.length){
@@ -6033,15 +6076,28 @@ async function loadTeamPage(){
     const ROLE_FR = { admin:i18nText('js.roleAdmin','Administrateur'), worker:i18nText('js.roleWorker','Équipe'), volunteer:i18nText('js.roleVolunteer','Bénévole') };
     grid.innerHTML = members.map((m, i) => {
       const name = m.full_name || (m.email ? m.email.split('@')[0] : 'Membre');
+      const isSelf = currentUser && m.id === currentUser.id;
+      const volState = m.role === 'volunteer' ? (m.approved ? ' ✅' : ' ⏳') : '';
+      const controls = (isAdmin && !isSelf) ? `
+        <div style="display:flex; gap:.4rem; margin-top:.75rem; flex-wrap:wrap; align-items:center; border-top:1px dashed var(--line); padding-top:.65rem;">
+          <select class="form-input" style="flex:1; min-width:110px; padding:.35rem .5rem; font-size:.78rem;" onchange="admChangeRole('${m.id}', this.value)">
+            <option value="worker" ${m.role === 'worker' ? 'selected' : ''}>${ROLE_FR.worker}</option>
+            <option value="volunteer" ${m.role === 'volunteer' ? 'selected' : ''}>${ROLE_FR.volunteer}</option>
+            <option value="admin" ${m.role === 'admin' ? 'selected' : ''}>${ROLE_FR.admin}</option>
+          </select>
+          ${m.role === 'volunteer' ? `<button class="btn btn-outline btn-sm" title="${m.approved ? '⏸' : '✅'}" onclick="admTeamApproval('${m.id}', ${m.approved ? 'false' : 'true'})">${m.approved ? '⏸' : '✅'}</button>` : ''}
+          <button class="btn btn-outline btn-sm" style="color:var(--alert); border-color:var(--alert);" onclick="admDeleteAccount('${m.id}')">🗑</button>
+        </div>` : '';
       return `<div class="card">
         <div style="display:flex; align-items:center; gap:.75rem; margin-bottom:.75rem;">
           <div class="avatar-round" style="width:48px; height:48px; font-size:1.1rem; background:${colors[i % colors.length]};">${escapeHtml(name.charAt(0).toUpperCase())}</div>
           <div>
-            <div style="font-weight:600;">${escapeHtml(name)}</div>
+            <div style="font-weight:600;">${escapeHtml(name)}${isSelf ? ' 👤' : ''}</div>
             <div style="font-size:.78rem; color:var(--ink-soft);">${escapeHtml(m.email || '')}</div>
           </div>
         </div>
-        <span class="badge ${m.role === 'admin' ? 'badge-info' : 'badge-neutral'}">${ROLE_FR[m.role] || m.role || '—'}</span>
+        <span class="badge ${m.role === 'admin' ? 'badge-info' : 'badge-neutral'}">${ROLE_FR[m.role] || m.role || '—'}${volState}</span>
+        ${controls}
       </div>`;
     }).join('');
   }catch(e){
@@ -6311,9 +6367,29 @@ async function admLoadVolunteers(){
 
 async function admSetVolApproval(id, approved){
   const { error } = await sb.from('profiles').update({ approved }).eq('id', id);
-  if(error){ showToast('Erreur : ' + error.message, 'danger'); return; }
-  showToast(approved ? 'Bénévole validé ✅' : 'Compte désactivé');
+  if(error){ showToast(i18nText('js.errorWord','Erreur') + ' : ' + error.message, 'danger'); return; }
+  showToast(approved ? i18nText('js.volApproved','Bénévole validé ✅') : i18nText('js.volDisabled','Compte désactivé'));
   admLoadVolunteers();
+}
+
+async function admChangeRole(id, role){
+  const { error } = await sb.from('profiles').update({ role }).eq('id', id);
+  if(error){ showToast(i18nText('js.errorWord','Erreur') + ' : ' + error.message, 'danger'); return; }
+  showToast(i18nText('js.roleChanged','Rôle mis à jour ✅'));
+  loadTeamPage(); if(typeof admLoadVolunteers === 'function') admLoadVolunteers();
+}
+
+async function admTeamApproval(id, approved){
+  await admSetVolApproval(id, approved);
+  loadTeamPage();
+}
+
+async function admDeleteAccount(id){
+  if(!confirm(i18nText('js.confirmDelAccount','Supprimer définitivement ce compte ? Cette action est irréversible.'))) return;
+  const { error } = await sb.from('profiles').delete().eq('id', id);
+  if(error){ showToast(i18nText('js.errorWord','Erreur') + ' : ' + error.message, 'danger'); return; }
+  showToast(i18nText('js.accountDeleted','Compte supprimé 🗑️'));
+  loadTeamPage(); if(typeof admLoadVolunteers === 'function') admLoadVolunteers();
 }
 
 async function admLoadPendingPhotos(){
@@ -6887,5 +6963,5 @@ function pwaDismiss(){
   <button onclick="pwaDismiss()" style="border:none; background:none; color:var(--ink-soft); font-size:1rem; cursor:pointer;">✕</button>
 </div>
 
-</body>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a3b8c9d21885fddb',t:'MTc4OTQ4NzQzOQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
